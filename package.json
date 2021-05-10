@@ -1,0 +1,59 @@
+{
+  "name": "webpack-config",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+    "start": "cross-env NODE_ENV=development webpack serve --mode development",
+    "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
+    "create_page": "cross-env NODE_ENV=development NEW_PAGE=create webpack --mode development"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "defaults"
+  ],
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "animate.css": "^4.1.1",
+    "jquery": "^3.6.0",
+    "swiper": "^6.5.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "colors": "^1.4.0",
+    "copy-webpack-plugin": "^8.1.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.4",
+    "css-url-relative-plugin": "^1.0.1",
+    "doiuse": "^4.4.1",
+    "favicons": "^6.2.1",
+    "favicons-webpack-plugin": "^5.0.2",
+    "file-loader": "^6.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^5.3.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-svgo": "^9.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^1.5.0",
+    "node-sass": "^5.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^8.2.13",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "svgo": "^2.3.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack": "^5.36.2",
+    "webpack-bundle-analyzer": "^4.4.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
