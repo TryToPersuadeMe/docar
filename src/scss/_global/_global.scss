@@ -1,16 +1,17 @@
 /* abstracts */
-@import "../_global/abstracts/mixins.scss";
-@import "../_global/abstracts/variables.scss";
-@import "../_global/abstracts/functions.scss";
+@import "@scss/_global/abstracts/mixins.scss";
+@import "@scss/_global/abstracts/variables.scss";
+@import "@scss/_global/abstracts/functions.scss";
 
 /* base */
-@import "../_global/base/fonts.scss";
-@import "../_global/base/reset.scss";
-@import "../_global/base/mainContainer.scss";
+@import "@scss/_global/base/fonts.scss";
+@import "@scss/_global/base/reset.scss";
+@import "@scss/_global/base/mainContainer.scss";
 
 /* vendors - code from side sources and Libraries */
 
 /* layout */
+@import "@scss/_global/layout/header.scss";
 
 /* components */
 

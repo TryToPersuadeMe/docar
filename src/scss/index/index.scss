@@ -1,5 +1,5 @@
 /* vendors - code from side sources and Libraries */
-@import "../_global/global";
+@import "@scss/_global/global";
 
 /* vendors - code from side sources and Libraries */
 
@@ -8,3 +8,21 @@
 /* components */
 
 /* pages */
+
+.wrapper {
+}
+.header {
+  &__logo {
+  }
+
+  &__navigation {
+  }
+
+  &__text {
+  }
+
+  &__contacts {
+  }
+}
+.navigation {
+}

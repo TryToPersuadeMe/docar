@@ -1,0 +1,16 @@
+header.header
+  .container.header__container
+    a.header__logo
+      img(src=require('@/assets/_global/logo.svg'), alt="docar logo")
+
+  nav.navigation.header__navigation 
+    each el in ["Лизинг","Калькулятор", "Каталог"]
+      a.header__text(href="#")= el
+
+  - var phoneNumber = '+7 961 47 77 77';
+  .header__contacts
+    p.header__text Г.Москва
+    a(href=`tel:${phoneNumber.replace(/\s+/g, '')}`) `#{ phoneNumber }`
+
+
+

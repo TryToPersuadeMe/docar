@@ -1,0 +1,5 @@
+mixin defaultButton(tag, additionalSelector, text)
+  if tag== "button"
+    button.defaultButton(class=additionalSelector)= text
+  else if tag== "a"
+    a.defaultButton(class=additionalSelector)= text

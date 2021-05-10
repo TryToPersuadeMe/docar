@@ -1,6 +1,5 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-
 const colors = require("colors");
 
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
@@ -58,7 +57,7 @@ const cssLoaders = (extra) => {
 const plugins = () => {
   const base = [
     new HTMLWebpackPlugin({
-      template: "./html/index/#index.html",
+      template: "./templates/index/#index.pug",
       filename: "index.html",
       chunks: ["_global", "index"],
     }),
@@ -197,6 +196,11 @@ module.exports = {
             },
           },
         ],
+      },
+
+      {
+        test: /\.pug$/,
+        loader: "pug-loader",
       },
 
       /* work only with 0.5 html loader */

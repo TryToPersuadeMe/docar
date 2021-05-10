@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+  body 
+//- mixins
+include ../_global/abstracts/mixins/button-default.pug
+
+.wrapper
+  include ../_global/layout/_header.pug
+  section.firstScreen
+    h1.firstScreen__title.sectionTitle Лизинг легковых автомобилей
+    h4.firstScree__subtitle Позваляет приобрести автомобили быстро и без труда
+    +defaultButton("button","firstScreen__button","Оставить заявку") 
