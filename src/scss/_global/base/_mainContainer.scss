@@ -1,13 +1,21 @@
 .container {
-  max-width: 130rem;
+  max-width: 140rem;
   width: 100%;
   margin: 0 auto;
   padding: 0px 2rem;
+  &_small {
+    max-width: 134rem;
+  }
 }
 
 .wrapper {
-  padding: 3rem 0px;
   overflow: hidden;
-
+  background-color: #e5e5e5;
   font-family: $mainFontFamily;
+
+  &__100vh {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: min-content 1fr;
+  }
 }

@@ -1,0 +1,22 @@
+.firstScreen {
+  line-height: 1.4;
+  color: #ffffff;
+  @include backgroundImage("@/assets/images/index/firstScreenBG.jpg", cover);
+  &__container {
+    padding-top: 13vh;
+    padding-bottom: 10vh;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-bottom: 6rem;
+  }
+
+  &__button {
+  }
+}

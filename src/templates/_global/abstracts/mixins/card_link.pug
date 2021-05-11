@@ -1,0 +1,11 @@
+mixin linkCard(title,[...links], imgNum)
+    .linkCard
+        .linkCard__title= title
+        .linkCard__categoryWrapper
+            each val in [...links]
+                a(href="#").linkCard__categoryLink= val
+        .linkCard__img
+            img(src=require(`@/assets/images/index/linkCards/${imgNum}.png`), alt="alt")
+        a(href="#").linkCard__link Подробнее
+
+

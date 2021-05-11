@@ -10,9 +10,11 @@
 
 /* vendors - code from side sources and Libraries */
 
+/* components */
+@import "@scss/_global/components/text.scss";
+@import "@scss/_global/components/buttons.scss";
+
 /* layout */
 @import "@scss/_global/layout/header.scss";
-
-/* components */
 
 /* pages */

@@ -4,25 +4,10 @@
 /* vendors - code from side sources and Libraries */
 
 /* layout */
+@import "@scss/index/layout/firstScreen.scss";
+@import "@scss/index/layout/catalog.scss";
 
 /* components */
+@import "@scss/index/components/linkCard.scss";
 
 /* pages */
-
-.wrapper {
-}
-.header {
-  &__logo {
-  }
-
-  &__navigation {
-  }
-
-  &__text {
-  }
-
-  &__contacts {
-  }
-}
-.navigation {
-}

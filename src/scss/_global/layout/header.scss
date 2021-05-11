@@ -4,6 +4,8 @@
 @import "@scss/_global/abstracts/functions.scss";
 
 .navigation {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   background-color: white;
   &__container {
     display: grid;
@@ -24,11 +26,11 @@
   }
 
   &__panel {
-    border: 1px solid #000;
     display: flex;
     justify-content: space-between;
-    max-width: 80%;
-    margin-left: 3rem;
+    max-width: 60rem;
+    width: 100%;
+    justify-self: center;
     & > :not(:last-child) {
       margin-right: 2rem;
     }
@@ -36,9 +38,12 @@
 
   &__text {
     font-size: 1.8rem;
+    color: $mainTextColor;
   }
 
   &__contacts {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2.5rem;
   }
 }

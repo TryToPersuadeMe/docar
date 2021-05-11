@@ -7,11 +7,31 @@ html(lang="en")
     title Document
   body 
 //- mixins
-include ../_global/abstracts/mixins/button-default.pug
+include ~@/templates/_global/abstracts/mixins/button_default.pug
+include ~@/templates/_global/abstracts/mixins/card_link.pug
 
 .wrapper
-  include ../_global/layout/_header.pug
-  section.firstScreen
-    h1.firstScreen__title.sectionTitle Лизинг легковых автомобилей
-    h4.firstScree__subtitle Позваляет приобрести автомобили быстро и без труда1
-    +defaultButton("button","firstScreen__button","Оставить заявку") 
+  .wrapper__100vh
+    include ~@/templates/_global/layout/_header.pug
+
+    section.firstScreen
+      .container.container_small.firstScreen__container
+        h1.firstScreen__title.sectionTitle Лизинг <br> легковых автомобилей
+        h4.firstScreen__subtitle Позваляет приобрести автомобили <br> быстро и без труда
+        +defaultButton("button","firstScreen__button","Оставить заявку") 
+
+
+  .catalog
+    .catalog__container.container
+      .catalog__row 
+        +linkCard("Легковые автомобили",["С пробегом"],1)
+        +linkCard("Легковые автомобили",[" "],2)
+        +linkCard("Коммерческий транспорт",["Эконом класс","С пробегом","Премиум класс"],3)
+        +linkCard("Водителям такси",["Эконом класс","С пробегом","Премиум класс"],4)
+  //- .search
+  //-   label.search__labelWrapper
+  //-     span.search__findIcon 
+  //-       img(src="#", alt="alt")
+  //-     input(type="search") 
+  //-     span.search__closeButton
+  //-       img(src="#", alt="alt")
