@@ -28,10 +28,5 @@ include ~@/templates/_global/abstracts/mixins/card_link.pug
         +linkCard("Легковые автомобили",[" "],2)
         +linkCard("Коммерческий транспорт",["Эконом класс","С пробегом","Премиум класс"],3)
         +linkCard("Водителям такси",["Эконом класс","С пробегом","Премиум класс"],4)
-  //- .search
-  //-   label.search__labelWrapper
-  //-     span.search__findIcon 
-  //-       img(src="#", alt="alt")
-  //-     input(type="search") 
-  //-     span.search__closeButton
-  //-       img(src="#", alt="alt")
+
+      include ~@/templates/_global/components/searchInput.pug
