@@ -1,0 +1,24 @@
+.cardWithIcon {
+  max-width: 32.5rem;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 0.7rem;
+  &__img {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto 2.5rem auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__title {
+    font-family: "PT Sans";
+    font-size: 2.4rem;
+    line-height: 140.8%;
+    text-align: center;
+    color: $mainTextColor;
+  }
+}

@@ -1,0 +1,153 @@
+.calculation {
+  &__container {
+    padding-bottom: 16rem;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2rem;
+  }
+}
+
+.calculator {
+  max-width: 65rem;
+  padding: 4rem 5rem;
+  background: #ffffff;
+  border-radius: 0.7rem;
+  &__cell {
+    color: $mainTextColor;
+    &:not(:last-of-type) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__note {
+    position: absolute;
+    top: 50%;
+    right: 3rem;
+    transform: translateY(-50%);
+    font-weight: 300;
+    font-size: 1.8rem;
+    color: $mainTextColor;
+  }
+
+  &__sliderWrapper {
+    position: relative;
+  }
+  &__name {
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 140.8%;
+    margin-bottom: 1rem;
+  }
+  &__customInput {
+    border: 0.1rem solid #787a8e;
+    border-radius: 0.7rem;
+    padding: 0 5rem;
+    text-align: center;
+    height: 7rem;
+    font-weight: 500;
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__noUiSliderWrapper {
+    height: 0.3rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    .noUi-base {
+      height: 0.3rem;
+      margin: 0 auto;
+    }
+
+    .noUi-connect {
+      background-color: #000066;
+    }
+    .noUi-connects {
+      background-color: #c3c0f9;
+      cursor: pointer;
+    }
+
+    .noUi-handle {
+      background-color: #000066;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 100%;
+      cursor: e-resize;
+      box-shadow: none;
+      border: 0px solid transparent;
+
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  &__limitsWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  &__limitsText {
+    font-weight: 300;
+    font-size: 1.8rem;
+    line-height: 140.8%;
+    color: #787a8e;
+  }
+}
+
+.result {
+  max-width: 37rem;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  &__cell {
+    text-align: center;
+    color: $mainTextColor;
+    margin-bottom: 2.5rem;
+    display: block;
+  }
+
+  &__date {
+    line-height: 1.4;
+    &_big {
+      font-size: 7.2rem;
+    }
+
+    &_medium {
+      font-size: 3.5rem;
+    }
+
+    &_small {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    line-height: 140.8%;
+    font-size: 1.8rem;
+    &_big {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__note {
+    margin-top: 2.5rem;
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 140.8%;
+    color: #787a8e;
+  }
+  &__button {
+    margin-top: 2rem;
+  }
+}

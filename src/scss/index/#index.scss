@@ -8,9 +8,13 @@
 /* layout */
 @import "@scss/index/layout/firstScreen.scss";
 @import "@scss/index/layout/catalog.scss";
+@import "@scss/index/layout/advantages.scss";
+@import "@scss/index/layout/features.scss";
+@import "@scss/index/layout/getCarSlider.scss";
+@import "@scss/_global/layout/calculation.scss";
 
 /* components */
 @import "@scss/index/components/linkCard.scss";
-@import "@scss/_global/components/searchInput.scss";
+@import "@scss/index/components/card_withIcon.scss";
 
 /* pages */

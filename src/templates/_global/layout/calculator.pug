@@ -1,0 +1,51 @@
+
+.container.calculation__container 
+    h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Рассчитать лизинг Online
+    .calculation__row
+        .calculator
+            .calculator__cell
+                p.calculator__name Стоимость автомобиля, ₽
+                div(id="cost").calculator__sliderWrapper
+                    p.calculator__customInput  от 500 000 
+                    
+                    .calculator__noUiSliderWrapper
+                .calculator__limitsWrapper
+                    span.calculator__limitsText от 500 000 ₽
+                    span.calculator__limitsText до 2 500 000 ₽
+
+            .calculator__cell
+                p.calculator__name Первоночальный взнос, %
+                div(id="firstPayment").calculator__sliderWrapper
+                    span.calculator__customInput  от 500 000 
+                    p(data-endfix_note =" %").calculator__note 10 %
+                    .calculator__noUiSliderWrapper
+                .calculator__limitsWrapper
+                    span.calculator__limitsText от 10 %
+                    span.calculator__limitsText до 100 %
+
+            .calculator__cell
+                p.calculator__name Срок лизинга, мес
+                div(id="period").calculator__sliderWrapper
+                    span.calculator__customInput  6 мес.
+                    .calculator__noUiSliderWrapper
+                .calculator__limitsWrapper
+                    span.calculator__limitsText от 6 мес.
+                    span.calculator__limitsText до 32 мес.
+
+        form.result
+            label.result__cell
+                p.result__date.result__date_big 41 654 ₽
+                p.result__text.result__text_big Ежемесячный платеж
+            label.result__cell
+                p.result__date.result__date_medium 485 020 ₽
+                p.result__text Сумма договора лизинга
+            label.result__cell
+                p.result__date.result__date_small 80 830 ₽
+                p.result__text Возврат 20% НДС
+            label.result__cell
+                p.result__date.result__date_small 80 830 ₽
+                p.result__text Снижение налога на прибыль
+            +defaultButton("button","result__button","Оставить заявку") 
+            p.result__note Расчет носит предварительный характер и не является публичной офертой
+
+

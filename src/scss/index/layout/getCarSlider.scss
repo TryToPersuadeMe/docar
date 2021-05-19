@@ -1,0 +1,43 @@
+.getCarSlider {
+  &__container {
+    margin-bottom: 16rem;
+  }
+  &__wrapper {
+    max-width: 85rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  &__slide {
+  }
+  &__arrow {
+    background-color: $mainTextColor;
+    width: 3.5rem;
+    height: 9.5rem;
+    border-radius: 0.7rem;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+
+    img {
+      object-fit: contain;
+    }
+    &::after {
+      display: none;
+    }
+
+    &_next {
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    &_prev {
+      transform: rotate(180deg) translateY(50%);
+      left: 0;
+    }
+  }
+
+  &__button {
+    margin: 3rem auto 0 auto;
+    display: block;
+  }
+}

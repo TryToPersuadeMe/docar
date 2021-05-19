@@ -1,0 +1,21 @@
+.features {
+  &__container {
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+  }
+
+  &__boxesWrapper {
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(25rem, 32.5rem));
+    // column-gap: 2rem;
+    // row-gap: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 -1rem -6rem -1rem;
+    & > * {
+      margin: 0 1rem;
+      margin: 0 1rem 6rem 1rem;
+    }
+  }
+}

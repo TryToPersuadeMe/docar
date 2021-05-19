@@ -1,7 +1,7 @@
-header.header.navigation
+header.footer.navigation
   .container.container_small.navigation__container
     a(href="#" ).navigation__logo
-      img(src=require('@/assets/_global/logo.svg'), alt="docar logo")
+      img(src=require('@/assets/_global/logo_white.svg'), alt="docar logo")
 
     nav.navigation__panel.header__navigation 
       each el in ["Лизинг","Калькулятор", "Каталог"]
@@ -9,7 +9,7 @@ header.header.navigation
 
     - var phoneNumber = '+7 961 477 77 77';
     .navigation__contacts
-      p.navigation__text Г.Москва
+      p.navigation__text Г. Москва, ул. Привокзальная, д 87
       a(href=`tel:${phoneNumber.replace(/\s+/g, '')}` class="navigation__text") #{ phoneNumber }
 
 

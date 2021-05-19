@@ -9,6 +9,9 @@ html(lang="en")
 //- mixins
 include ~@/templates/_global/abstracts/mixins/button_default.pug
 include ~@/templates/_global/abstracts/mixins/card_link.pug
+include ~@/templates/_global/abstracts/mixins/searchInput.pug
+include ~@/templates/_global/abstracts/mixins/card_withIcon.pug
+
 
 .wrapper
   .wrapper__100vh
@@ -16,7 +19,7 @@ include ~@/templates/_global/abstracts/mixins/card_link.pug
 
     section.firstScreen
       .container.container_small.firstScreen__container
-        h1.firstScreen__title.sectionTitle Лизинг <br> легковых автомобилей
+        h1.firstScreen__title.sectionTitle.sectionTitle_white.sectionTitle_fw300 Лизинг <br> легковых автомобилей
         h4.firstScreen__subtitle Позваляет приобрести автомобили <br> быстро и без труда
         +defaultButton("button","firstScreen__button","Оставить заявку") 
 
@@ -28,5 +31,52 @@ include ~@/templates/_global/abstracts/mixins/card_link.pug
         +linkCard("Легковые автомобили",[" "],2)
         +linkCard("Коммерческий транспорт",["Эконом класс","С пробегом","Премиум класс"],3)
         +linkCard("Водителям такси",["Эконом класс","С пробегом","Премиум класс"],4)
+      +searchInput("catalog__search")
+  
+  section.advantages
+    .container.advantages__container 
+      h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Сотрудничая с нами вы получаете ряд преимуществ 
+      .advantages__row
+        .advantages__img 
+          img(src=require("@/assets/images/index/advantages/1.jpg"), alt="#")
+        ol.advantages__ol
+          li.advantages__li Предварительный анализ отчётности, оценка возможности получения финансирования
+          li.advantages__li Получение практических рекомендации для повышения вероятности одобрения вашей заявки
+          li.advantages__li Экономия времени на сбор предложений лизинговых компаний и выбор лучших условий лизинга
+          li.advantages__li Защита ваших интересов при согласовании лизинговой сделки
 
-      include ~@/templates/_global/components/searchInput.pug
+  section.features
+    .container.features__container 
+      h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Чем лизинг лучше кредита
+      .features__boxesWrapper
+        +card_WithIcon("Не нужно подтверждение дохода", 1)
+        +card_WithIcon("Не важна кредитная история", 2)
+        +card_WithIcon("Минимальный пакет документов", 3)
+        +card_WithIcon("Решение за один день", 4)
+        +card_WithIcon("Автомобили с пробегом", 5)
+        +card_WithIcon("Меньше первоначальный взнос", 6)
+        +card_WithIcon("Любое гражданство", 7)
+    
+    .getCarSlider
+      .getCarSlider__container.container.swiper-container 
+        .getCarSlider__wrapper.swiper-wrapper
+          .getCarSlider__slide.swiper-slide
+            img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")        
+          .getCarSlider__slide.swiper-slide
+            img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")
+          .getCarSlider__slide.swiper-slide
+            img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")
+        button.getCarSlider__arrow.getCarSlider__arrow_next
+          img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+        button.getCarSlider__arrow.getCarSlider__arrow_prev
+          img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+        +defaultButton("button","getCarSlider__button","Подобрать автомобиль") 
+
+
+
+
+    section.calculation
+        include ~@/templates/_global/layout/calculator.pug
+    
+
+     include ~@/templates/_global/layout/_footer.pug

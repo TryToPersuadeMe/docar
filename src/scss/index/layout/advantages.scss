@@ -1,0 +1,68 @@
+.advantages {
+  &__container {
+    padding-top: 9.5rem;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__img {
+    max-width: 56rem;
+    width: 100%;
+    height: 0;
+    position: relative;
+    padding-bottom: 65%;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__ol {
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    list-style-type: none; /* Убираем исходные маркеры */
+    counter-reset: my-counter; /* Задаём имя счетчика */
+  }
+
+  &__li {
+    position: relative;
+    &:not(:last-of-type) {
+      margin-bottom: 6rem;
+    }
+
+    // &::marker {
+    //   font-family: "PT Sans";
+    //   font-weight: bold;
+    //   font-size: 9.5rem;
+    //   color: #d7ddec;
+    // }
+
+    &:before {
+      content: counter(my-counter); /* Выводим число */
+      counter-increment: my-counter; /* Увеличиваем значение счётчика */
+      font-family: "PT Sans";
+      font-weight: bold;
+      font-size: 9.5rem;
+      color: #d7ddec;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(-100%, -30%);
+    }
+
+    color: $mainTextColor;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+}

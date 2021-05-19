@@ -1,0 +1,17 @@
+/* abstracts */
+@import "@scss/_global/abstracts/mixins.scss";
+@import "@scss/_global/abstracts/variables.scss";
+@import "@scss/_global/abstracts/functions.scss";
+
+.footer {
+  background-color: $mainTextColor;
+  .navigation {
+    &__container {
+      grid-template-columns: 12rem minmax(30rem, 40rem) auto;
+    }
+
+    &__text {
+      color: #787a8e;
+    }
+  }
+}
