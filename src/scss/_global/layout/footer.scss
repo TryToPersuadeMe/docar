@@ -6,12 +6,34 @@
 .footer {
   background-color: $mainTextColor;
   .navigation {
+    background-color: $mainTextColor;
+
     &__container {
+      padding-bottom: 2.5rem;
+
       grid-template-columns: 12rem minmax(30rem, 40rem) auto;
     }
 
     &__text {
       color: #787a8e;
+    }
+  }
+}
+
+.additionalInfo {
+  display: flex;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-top: 1px solid #c3c0f9;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__linksWrapper {
+    width: 100%;
+    max-width: 100%;
+    & > :not(:last-of-type) {
+      margin-right: 2rem;
     }
   }
 }

@@ -11,6 +11,14 @@ include ~@/templates/_global/abstracts/mixins/button_default.pug
 include ~@/templates/_global/abstracts/mixins/card_link.pug
 include ~@/templates/_global/abstracts/mixins/searchInput.pug
 include ~@/templates/_global/abstracts/mixins/card_withIcon.pug
+mixin slide(title,text,imgNum)
+  .dealProcess__slide.swiper-slide
+    .dealProcess__img
+      img(src=require(`@/assets/images/index/dealProcess/${imgNum}.jpg`), alt="#")
+    .dealProcess__textWrapper 
+      h6.dealProcess__slideTitle= title
+      p.dealProcess__text=text
+
 
 
 .wrapper
@@ -77,6 +85,44 @@ include ~@/templates/_global/abstracts/mixins/card_withIcon.pug
 
     section.calculation
         include ~@/templates/_global/layout/calculator.pug
-    
 
-     include ~@/templates/_global/layout/_footer.pug
+    section.dealProcess
+      .container.dealProcess__container
+        h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Как происходит сделка лизинга
+      .dealProcess__slider.swiper-container 
+        .swiper-wrapper 
+          +slide("Выбор транспорта и поставщика","Выбираете желаемый автомобиль и поставщика",1)
+          +slide("Оставляете заявку","Оставляете заявку на консультацию на этом сайте",2)
+          +slide("Лучшие условия","Мы подбираем для вас лучшее предложение среди лизинговых компаний под ваши условия (ваш запрос)",3)
+          +slide("Заключение договора","Вы собираете документы и заключаете договор лизинга",4)
+          +slide("Передача автомобиля","Вы получаете ключи от желаемого автомобиля",5)
+          +slide("Внесение платежей","Вы вносите авансовый и ежемесячные платежи",6)
+          +slide("Выкуп автомобиля","Вы выкупаете автомобиль в собственность!",7)
+
+          .dealProcess__arrowsWrapper
+            button.dealProcess__arrow.dealProcess__arrow_prev
+              img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+
+            button.dealProcess__arrow.dealProcess__arrow_next
+              img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+
+
+        .customPaginationWrapper
+          .container.customPaginationWrapper__container
+            .dealProcess__pagination
+            .customProgressBar
+                .customProgressBar__fillLine
+
+    section.FAQ
+      .FAQ__container.container 
+        h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Частые вопросы
+        .FAQ__column 
+          .toggleTextItem
+            h6.toggleTextItem__title Что такое лизинг?
+              span.toggleTextItem__arrow
+                img(src=require("@/assets/_global/icons/arrow_angle_blue.svg"), alt="arrow")
+            .toggleTextItem__dropdown
+              p.toggleTextItem__text Лизинг (to lease — сдать в аренду, англ.) — это вид финансовых услуг, суть которого заключается в финансировании приобретения основных фондов посредством приобретения компанией-лизингодателем имущества у поставщика и передачи его в долгосрочную аренду клиенту-лизингополучателю (юридическому лицу) с последующим выкупом.
+              p.toggleTextItem__text Финансовую аренду (лизинг) регулируют Гражданский кодекс РФ (ст. 665, 666), Федеральный закон от 29 октября 1998 года «О финансовой аренде (лизинге)», а также многочисленные подзаконные акты.
+
+    include ~@/templates/_global/layout/_footer.pug

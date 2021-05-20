@@ -10,7 +10,8 @@
 
 .wrapper {
   overflow: hidden;
-  background-color: #e5e5e5;
+  background-color: $pageBackgroundColor;
+
   font-family: $mainFontFamily;
 
   &__100vh {

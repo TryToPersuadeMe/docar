@@ -1,9 +1,9 @@
-header.footer.navigation
-  .container.container_small.navigation__container
+footer.footer
+  .navigation.container.container_small.navigation__container
     a(href="#" ).navigation__logo
       img(src=require('@/assets/_global/logo_white.svg'), alt="docar logo")
 
-    nav.navigation__panel.header__navigation 
+    nav.navigation__panel.footer_navigation 
       each el in ["Лизинг","Калькулятор", "Каталог"]
         a.navigation__text(href="#")= el
 
@@ -11,6 +11,12 @@ header.footer.navigation
     .navigation__contacts
       p.navigation__text Г. Москва, ул. Привокзальная, д 87
       a(href=`tel:${phoneNumber.replace(/\s+/g, '')}` class="navigation__text") #{ phoneNumber }
+  .additionalInfo
+    .container.container_small.additionalInfo__container  
+      .additionalInfo__linksWrapper
+        a(href="#").navigation__text Условия использования
+        a(href="#").navigation__text Политика конфиденциальности
+      p.navigation__text 2021г.
 
 
 

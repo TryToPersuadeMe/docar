@@ -1,0 +1,45 @@
+.FAQ {
+  &__container {
+  }
+  &__column {
+    max-width: 87.5rem;
+    margin: 0 auto;
+  }
+}
+
+.toggleTextItem {
+  $this: &;
+  &.active {
+    #{$this}__text {
+      font-size: 1.8rem;
+      line-height: 177.8%;
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 140.8%;
+    color: #787a8e;
+    padding: 0 1rem;
+    margin-bottom: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__dropdown {
+    padding: 1rem 0 0 4.5rem;
+    border-top: 1px solid #c3c0f9;
+  }
+  &__text {
+    font-weight: 300;
+    font-size: 0;
+    color: $mainTextColor;
+    transition: 0.5s ease;
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+  }
+}
