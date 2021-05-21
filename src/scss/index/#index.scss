@@ -14,9 +14,11 @@
 @import "@scss/_global/layout/calculation.scss";
 @import "@scss/index/layout/dealProcess.scss";
 @import "@scss/index/layout/FAQ.scss";
+@import "@scss/index/layout/contacts.scss";
 
 /* components */
-@import "@scss/index/components/linkCard.scss";
+@import "@scss/index/components/card_link.scss";
 @import "@scss/index/components/card_withIcon.scss";
+@import "@scss/index/components/makeAnApplicationPopUp.scss";
 
 /* pages */

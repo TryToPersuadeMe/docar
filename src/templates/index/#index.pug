@@ -1,11 +1,3 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-  body 
 //- mixins
 include ~@/templates/_global/abstracts/mixins/button_default.pug
 include ~@/templates/_global/abstracts/mixins/card_link.pug
@@ -19,110 +11,202 @@ mixin slide(title,text,imgNum)
       h6.dealProcess__slideTitle= title
       p.dealProcess__text=text
 
+mixin toggleTextItem(title,[...text])
+  .toggleTextItem
+    h6.toggleTextItem__title= title
+      span.toggleTextItem__arrow
+        img(src=require("@/assets/_global/icons/arrow_angle_blue.svg"), alt="arrow")
+    .toggleTextItem__dropdown
+      each val in [...text]
+        p.toggleTextItem__text= val
+
+mixin customCheckboxNote()
+  label.checkBox
+    input(type="checkbox").checkBox__input
+    span.checkBox__customCheckbox
+    span.makeAnApplication__text Я соглашаюсь с условиями обработки и использования моих персональных данных, а также с общими условиями лизинга  
 
 
-.wrapper
-  .wrapper__100vh
-    include ~@/templates/_global/layout/_header.pug
 
-    section.firstScreen
-      .container.container_small.firstScreen__container
-        h1.firstScreen__title.sectionTitle.sectionTitle_white.sectionTitle_fw300 Лизинг <br> легковых автомобилей
-        h4.firstScreen__subtitle Позваляет приобрести автомобили <br> быстро и без труда
-        +defaultButton("button","firstScreen__button","Оставить заявку") 
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+  body 
+    .wrapper
+      .wrapper__100vh
+        include ~@/templates/_global/layout/_header.pug
 
+        section.firstScreen
+          .container.container_small.firstScreen__container
+            h1.firstScreen__title.sectionTitle.sectionTitle_white.sectionTitle_fw300 Лизинг <br> легковых автомобилей
+            h4.firstScreen__subtitle Позваляет приобрести автомобили <br> быстро и без труда
+            +defaultButton("button","firstScreen__button","Оставить заявку") 
 
-  .catalog
-    .catalog__container.container
-      .catalog__row 
-        +linkCard("Легковые автомобили",["С пробегом"],1)
-        +linkCard("Легковые автомобили",[" "],2)
-        +linkCard("Коммерческий транспорт",["Эконом класс","С пробегом","Премиум класс"],3)
-        +linkCard("Водителям такси",["Эконом класс","С пробегом","Премиум класс"],4)
-      +searchInput("catalog__search")
-  
-  section.advantages
-    .container.advantages__container 
-      h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Сотрудничая с нами вы получаете ряд преимуществ 
-      .advantages__row
-        .advantages__img 
-          img(src=require("@/assets/images/index/advantages/1.jpg"), alt="#")
-        ol.advantages__ol
-          li.advantages__li Предварительный анализ отчётности, оценка возможности получения финансирования
-          li.advantages__li Получение практических рекомендации для повышения вероятности одобрения вашей заявки
-          li.advantages__li Экономия времени на сбор предложений лизинговых компаний и выбор лучших условий лизинга
-          li.advantages__li Защита ваших интересов при согласовании лизинговой сделки
+      .catalog
+        .catalog__container.container
+          .catalog__row 
+            +linkCard("Легковые автомобили",["С пробегом"],1)
+            +linkCard("Легковые автомобили",[" "],2)
+            +linkCard("Коммерческий транспорт",["Эконом класс","С пробегом","Премиум класс"],3)
+            +linkCard("Водителям такси",["Эконом класс","С пробегом","Премиум класс"],4)
+          +searchInput("catalog__search")
+      
+      section.advantages
+        .container.advantages__container 
+          h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Сотрудничая с нами вы получаете ряд преимуществ 
+          .advantages__row
+            .advantages__img 
+              img(src=require("@/assets/images/index/advantages/1.jpg"), alt="#")
+            ol.advantages__ol
+              li.advantages__li Предварительный анализ отчётности, оценка возможности получения финансирования
+              li.advantages__li Получение практических рекомендации для повышения вероятности одобрения вашей заявки
+              li.advantages__li Экономия времени на сбор предложений лизинговых компаний и выбор лучших условий лизинга
+              li.advantages__li Защита ваших интересов при согласовании лизинговой сделки
 
-  section.features
-    .container.features__container 
-      h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Чем лизинг лучше кредита
-      .features__boxesWrapper
-        +card_WithIcon("Не нужно подтверждение дохода", 1)
-        +card_WithIcon("Не важна кредитная история", 2)
-        +card_WithIcon("Минимальный пакет документов", 3)
-        +card_WithIcon("Решение за один день", 4)
-        +card_WithIcon("Автомобили с пробегом", 5)
-        +card_WithIcon("Меньше первоначальный взнос", 6)
-        +card_WithIcon("Любое гражданство", 7)
-    
-    .getCarSlider
-      .getCarSlider__container.container.swiper-container 
-        .getCarSlider__wrapper.swiper-wrapper
-          .getCarSlider__slide.swiper-slide
-            img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")        
-          .getCarSlider__slide.swiper-slide
-            img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")
-          .getCarSlider__slide.swiper-slide
-            img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")
-        button.getCarSlider__arrow.getCarSlider__arrow_next
-          img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
-        button.getCarSlider__arrow.getCarSlider__arrow_prev
-          img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+      section.features
+        .container.features__container 
+          h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Чем лизинг лучше кредита
+          .features__boxesWrapper
+            +card_WithIcon("Не нужно подтверждение дохода", 1)
+            +card_WithIcon("Не важна кредитная история", 2)
+            +card_WithIcon("Минимальный пакет документов", 3)
+            +card_WithIcon("Решение за один день", 4)
+            +card_WithIcon("Автомобили с пробегом", 5)
+            +card_WithIcon("Меньше первоначальный взнос", 6)
+            +card_WithIcon("Любое гражданство", 7)
+        
+      .getCarSlider
+        .getCarSlider__container.container.swiper-container 
+          .getCarSlider__wrapper.swiper-wrapper
+            .getCarSlider__slide.swiper-slide
+              img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")        
+            .getCarSlider__slide.swiper-slide
+              img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")
+            .getCarSlider__slide.swiper-slide
+              img(src=require("@/assets/images/index/getCarSlider/1.png"), alt="#")
+          button.getCarSlider__arrow.getCarSlider__arrow_next
+            img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+          button.getCarSlider__arrow.getCarSlider__arrow_prev
+            img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+            
         +defaultButton("button","getCarSlider__button","Подобрать автомобиль") 
 
-
-
-
-    section.calculation
+      section.calculation
         include ~@/templates/_global/layout/calculator.pug
 
-    section.dealProcess
-      .container.dealProcess__container
-        h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Как происходит сделка лизинга
-      .dealProcess__slider.swiper-container 
-        .swiper-wrapper 
-          +slide("Выбор транспорта и поставщика","Выбираете желаемый автомобиль и поставщика",1)
-          +slide("Оставляете заявку","Оставляете заявку на консультацию на этом сайте",2)
-          +slide("Лучшие условия","Мы подбираем для вас лучшее предложение среди лизинговых компаний под ваши условия (ваш запрос)",3)
-          +slide("Заключение договора","Вы собираете документы и заключаете договор лизинга",4)
-          +slide("Передача автомобиля","Вы получаете ключи от желаемого автомобиля",5)
-          +slide("Внесение платежей","Вы вносите авансовый и ежемесячные платежи",6)
-          +slide("Выкуп автомобиля","Вы выкупаете автомобиль в собственность!",7)
+      section.dealProcess
+        .container.dealProcess__container
+          h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Как происходит сделка лизинга
+        .dealProcess__slider.swiper-container 
+          .swiper-wrapper 
+            +slide("Выбор транспорта и поставщика","Выбираете желаемый автомобиль и поставщика",1)
+            +slide("Оставляете заявку","Оставляете заявку на консультацию на этом сайте",2)
+            +slide("Лучшие условия","Мы подбираем для вас лучшее предложение среди лизинговых компаний под ваши условия (ваш запрос)",3)
+            +slide("Заключение договора","Вы собираете документы и заключаете договор лизинга",4)
+            +slide("Передача автомобиля","Вы получаете ключи от желаемого автомобиля",5)
+            +slide("Внесение платежей","Вы вносите авансовый и ежемесячные платежи",6)
+            +slide("Выкуп автомобиля","Вы выкупаете автомобиль в собственность!",7)
 
-          .dealProcess__arrowsWrapper
-            button.dealProcess__arrow.dealProcess__arrow_prev
-              img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+            .dealProcess__arrowsWrapper
+              button.dealProcess__arrow.dealProcess__arrow_prev
+                img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
 
-            button.dealProcess__arrow.dealProcess__arrow_next
-              img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
+              button.dealProcess__arrow.dealProcess__arrow_next
+                img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
 
 
-        .customPaginationWrapper
-          .container.customPaginationWrapper__container
-            .dealProcess__pagination
-            .customProgressBar
-                .customProgressBar__fillLine
+          .customPaginationWrapper
+            .container.customPaginationWrapper__container
+              .dealProcess__pagination
+              .customProgressBar
+                  .customProgressBar__fillLine
 
-    section.FAQ
-      .FAQ__container.container 
-        h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Частые вопросы
-        .FAQ__column 
-          .toggleTextItem
-            h6.toggleTextItem__title Что такое лизинг?
-              span.toggleTextItem__arrow
-                img(src=require("@/assets/_global/icons/arrow_angle_blue.svg"), alt="arrow")
-            .toggleTextItem__dropdown
-              p.toggleTextItem__text Лизинг (to lease — сдать в аренду, англ.) — это вид финансовых услуг, суть которого заключается в финансировании приобретения основных фондов посредством приобретения компанией-лизингодателем имущества у поставщика и передачи его в долгосрочную аренду клиенту-лизингополучателю (юридическому лицу) с последующим выкупом.
-              p.toggleTextItem__text Финансовую аренду (лизинг) регулируют Гражданский кодекс РФ (ст. 665, 666), Федеральный закон от 29 октября 1998 года «О финансовой аренде (лизинге)», а также многочисленные подзаконные акты.
+      section.FAQ
+        .FAQ__container.container 
+          h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Частые вопросы
+          .FAQ__column 
 
-    include ~@/templates/_global/layout/_footer.pug
+            +toggleTextItem("Что такое лизинг?",
+            [
+            "Лизинг (to lease — сдать в аренду, англ.) — это вид финансовых услуг, суть которого заключается в финансировании приобретения основных фондов посредством приобретения компанией-лизингодателем имущества у поставщика и передачи его в долгосрочную аренду клиенту-лизингополучателю (юридическому лицу) с последующим выкупом.)",
+            "Финансовую аренду (лизинг) регулируют Гражданский кодекс РФ (ст. 665, 666), Федеральный закон от 29 октября 1998 года «О финансовой аренде (лизинге)», а также многочисленные подзаконные акты."
+            ])
+
+            +toggleTextItem("На какие виды имущества предоставляется лизинг?",
+            [
+            "Лизинг подходит для приобретения легкового и коммерческого автотранспорта, грузовых автомобилей, дорожной (строительной и специальной) техники."
+            ])
+
+            +toggleTextItem("В чем суть лизинга?",
+            [
+            "Лизинговая компания приобретает в собственность конкретное имущество и передаёт его в пользование третьему лицу (клиенту-лизингополучателю) на определённый срок. При этом продавца выбирает именно третье лицо — лизингополучатель, потребитель данной финансовой услуги. В течение срока действия лизингового договора клиент выплачивает стоимость приобретённого имущества плюс вознаграждение за лизинг. По истечении обозначенного сделкой времени и выплаты оговоренной суммы имущество переходит в собственность лизингополучателя. При этом оптимальный срок лизинга ощутимо снижает размеры ежемесячных выплат и позволяет оптимально распоряжаться активами, получая прибыль при комфортной долговой нагрузке на бизнес.Уникальность данного финансового инструмента состоит в том, что лизинг органично сочетает в себе характеристики долгосрочной аренды и финансового кредита."
+            ])
+
+            +toggleTextItem("В чем преимущества лизинга для физических лиц?",
+            [
+            "1. Не требуется подтверждение дохода.",
+            "2. Кредитная история не важна.",
+            "3. Возможность приобрести автомобиль под такси и сразу начать на нём зарабатывать.",
+            "4. Не важно гражданство."
+            ])
+
+            +toggleTextItem("Какова процедура сделок для физических лиц?",
+            [
+            "Условия программ и процедура получения лизинга могут варьироваться в зависимости от продукта. Стандартная схема оформления предполагает чёткий алгоритм последовательных действий, который включает:",
+          "1. Выбор конкретного предмета лизинга, поставщика/продавца и лизингодателя.",
+          "2. Подачу заявки и необходимых документов в лизинговую компанию.",
+          "3. Оценку лизингодателем возможности оформления сделки. В этом случае лизинговая компания анализирует общую платежеспособность лизингополучателя, учитывая основные характеристики предмета лизинга.",
+          "4. При положительном решении по заявке лизингодатель заключает договор с клиентом о финансовой аренде. Одновременно с этим лизингодатель оформляет договор с официальным поставщиком/продавцом предмета лизинга.",
+          "5. Внесение авансового платежа от лизингополучателя. Лизингодатель при этом выплачивает полную стоимость предмета лизинга поставщику/продавцу по сделке.",
+          "6. Поставщик передаёт предмет лизинга лизингодателю вместе со всеми техническими и правоустанавливающими документами.",
+          "7. Затем объект передается во владение непосредственно лизингополучателю.",
+          "8. Далее происходит регистрация объекта в ГИБДД.",
+          "9. При регистрации лизингодатель указывается как собственник, а лизингополучатель — как фактический владелец.",
+          "10. По истечении срока договора лизинга лизингодатель передаёт все права на объект лизингополучателю.",
+            ])
+
+            +toggleTextItem("Что такое удорожание?",
+            [
+            "Удорожанием в лизинговой сделке называется отношение суммы переплаты к первоначальной стоимости лизингового имущества. Процент удорожания чаще всего указывается как средний процент удорожания за год.",
+            ])
+
+            
+            +toggleTextItem("Можно продать полученный в лизинг автомобиль или сдать его в аренду?",
+            [
+            "До получения машины в собственность её нельзя продать, а сдать в аренду можно лишь с разрешения лизинговой компании.",
+            ])
+
+            +toggleTextItem("Кто платит налог на имущество?",
+            [
+            "Клиент не платит этот налог, если имущество находится в собственности у лизинговой компании. Если же оно оформляется на баланс клиента, налог можно сократить за счет применения механизма ускоренной амортизации. Также налог не начисляется на движимое имущество в период действия договора лизинга, и неважно, на чьем балансе оно находится.",
+            ])
+            .toggleTextItem
+              h6.toggleTextItem__title.permanentActive Другой вопрос?
+                button.toggleTextItem__buttonPopUp Задать свой вопрос
+              .toggleTextItem__dropdown
+
+      section.contacts
+        .contacts__wrapper
+          h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom.container Контактная информация
+          .contacts__fullWidthWrapper
+            .container.contacts__container
+              .contacts__gpsIcon
+                img(src=require("@/assets/_global/icons/gps-icon.svg"), alt="gps")
+              .makeAnApplication
+                .makeAnApplication__wrapper
+                  h4.makeAnApplication__title Оставить заявку на лизинг
+                  p.makeAnApplication__text.makeAnApplication__text_suptitle.makeAnApplication__text_centered  Специалисты DO CAR Лизинг сделают расчет и ответят на Ваши вопросы
+
+                  form(action="#").makeAnApplication__form
+                    input(type="text" placeholder="Ваше имя").defaultinput
+                    input(type="number" placeholder="+7 (999) 111 11 11").defaultinput
+                  +customCheckboxNote
+                  +defaultButton("button","makeAnApplication__button","Оставить заявку") 
+              
+
+      include ~@/templates/_global/layout/_footer.pug
+      

@@ -3,16 +3,40 @@
   }
   &__column {
     max-width: 87.5rem;
+
     margin: 0 auto;
+    & > :not(:last-child) {
+      margin-bottom: 2rem;
+    }
   }
 }
 
 .toggleTextItem {
   $this: &;
+
+  @mixin activeTitleState {
+    font-weight: 500;
+    font-size: 3rem;
+    color: $mainTextColor;
+  }
+
   &.active {
     #{$this}__text {
       font-size: 1.8rem;
-      line-height: 177.8%;
+      line-height: 1.7;
+    }
+
+    #{$this}__arrow {
+      transform: rotate(180deg);
+    }
+
+    #{$this}__title {
+      @include activeTitleState;
+    }
+
+    #{$this}__dropdown {
+      padding-top: 1rem;
+      padding-bottom: 2rem;
     }
   }
 
@@ -26,10 +50,46 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    position: relative;
+
+    &:hover {
+      color: $mainTextColor;
+    }
+
+    &.permanentActive {
+      @include activeTitleState;
+      cursor: default;
+      &::before {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
   }
+
+  &__buttonPopUp {
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: #c3c0f9;
+    background-color: transparent;
+    text-align: right;
+  }
+
   &__dropdown {
-    padding: 1rem 0 0 4.5rem;
-    border-top: 1px solid #c3c0f9;
+    padding: 0 0 0 4.5rem;
+    border-bottom: 1px solid #c3c0f9;
   }
   &__text {
     font-weight: 300;
@@ -40,6 +100,8 @@
 
   &__arrow {
     display: flex;
+    transition: 0.3s ease;
     align-items: center;
+    margin-left: 2rem;
   }
 }

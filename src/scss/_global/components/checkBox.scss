@@ -1,0 +1,46 @@
+.checkBox {
+  cursor: pointer;
+  display: flex;
+  &__input {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__input:checked + &__customCheckbox {
+    border: 0.5px solid #000066;
+    &:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__input:checked + &__customCheckbox + &__text {
+    color: $mainTextColor;
+  }
+
+  &__customCheckbox {
+    min-width: 1.4rem;
+    min-height: 1.4rem;
+    max-width: 1.4rem;
+    max-height: 1.4rem;
+    border: 0.5px solid #787a8e;
+    display: block;
+    position: relative;
+    transition: 0.3s ease;
+    margin-right: 0.7rem;
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s ease;
+      width: 100%;
+      height: 100%;
+      display: block;
+      @include backgroundImage("@/assets/_global/icons/checkmark-icon.svg", contain);
+    }
+  }
+}

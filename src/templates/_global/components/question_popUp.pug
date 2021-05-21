@@ -1,0 +1,13 @@
+.popUp
+    .container.popUp__container
+        h5.popUp__title Задать вопрос
+        p.popUp__text.popUp__suptitle Не нашли ответ на свой вопрос, оставьте его нам и наш менеджер ответит
+        button.popUp__closeButton
+        form(action="#").popUp__form 
+            .popUp__inputsGrid
+                input(type="text" placeholder="Ваше имя").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                input(type="number" placeholder="+7 (999) 111 11 11").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                input(type="text" placeholder="Марка автомобиля").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                input(type="number" placeholder="Сумма").defaultinput.defaultinput_bigText.defaultinput_whiteText
+            +customCheckboxNote
+        +defaultButton("button","popUp__button","Оставить заявку")

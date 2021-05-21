@@ -1,0 +1,63 @@
+.makeAnApplication {
+  max-width: 44rem;
+  width: 100%;
+
+  background: #ffffff;
+  border-radius: 0.7rem;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .checkBox {
+    margin-top: 1rem;
+  }
+  
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 28rem;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.5rem;
+    max-width: 25.5rem;
+    & > :not(:last-child) {
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 140.8%;
+    text-align: center;
+    color: $mainTextColor;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 140.3%;
+    color: #787a8e;
+    transition: 0.3s ease;
+
+    &_centered {
+      text-align: center;
+    }
+
+    &_suptitle {
+      max-width: 23rem;
+    }
+  }
+
+  &__button {
+    margin-top: 1rem;
+  }
+}

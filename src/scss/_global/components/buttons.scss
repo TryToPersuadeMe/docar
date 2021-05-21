@@ -7,4 +7,9 @@
   font-family: Gilroy;
   min-height: 6.5rem;
   font-weight: 500;
+  transition: 0.4s ease;
+  &:hover {
+    box-shadow: 0px 0px 25px 10px rgba(163, 155, 253, 0.51);
+    background-color: #010142;
+  }
 }

@@ -4,8 +4,15 @@ footer.footer
       img(src=require('@/assets/_global/logo_white.svg'), alt="docar logo")
 
     nav.navigation__panel.footer_navigation 
-      each el in ["Лизинг","Калькулятор", "Каталог"]
-        a.navigation__text(href="#")= el
+    
+      .navigation__select.select
+        p.navigation__text Лизинг
+        .navigation__dropdown.select__dropdown
+          a(href="#").navigation__text.navigation__text_currentPage Физические лица
+          a(href="#").navigation__text Юридические лица
+
+      a.navigation__text(href="#")= "Калькулятор"
+      a.navigation__text(href="#")= "Каталог"
 
     - var phoneNumber = '+7 961 477 77 77';
     .navigation__contacts
@@ -18,5 +25,7 @@ footer.footer
         a(href="#").navigation__text Политика конфиденциальности
       p.navigation__text 2021г.
 
+
+include ../components/question_popUp.pug
 
 

@@ -5,7 +5,7 @@
         .calculator
             .calculator__cell
                 p.calculator__name Стоимость автомобиля, ₽
-                div(id="cost").calculator__sliderWrapper
+                div(id="cost" ).calculator__sliderWrapper
                     p.calculator__customInput  от 500 000 
                     
                     .calculator__noUiSliderWrapper
@@ -34,18 +34,18 @@
 
         form.result
             label.result__cell
-                p.result__date.result__date_big 41 654 ₽
-                p.result__text.result__text_big Ежемесячный платеж
+                span.result__date.result__date_big 41 654 ₽
+                span.result__text.result__text_big Ежемесячный платеж
             label.result__cell
-                p.result__date.result__date_medium 485 020 ₽
-                p.result__text Сумма договора лизинга
+                span.result__date.result__date_medium 485 020 ₽
+                span.result__text Сумма договора лизинга
             label.result__cell
-                p.result__date.result__date_small 80 830 ₽
-                p.result__text Возврат 20% НДС
+                span.result__date.result__date_small 80 830 ₽
+                span.result__text Возврат 20% НДС
             label.result__cell
-                p.result__date.result__date_small 80 830 ₽
-                p.result__text Снижение налога на прибыль
+                span.result__date.result__date_small 80 830 ₽
+                span.result__text Снижение налога на прибыль
             +defaultButton("button","result__button","Оставить заявку") 
-            p.result__note Расчет носит предварительный характер и не является публичной офертой
+            span.result__note Расчет носит предварительный характер и не является публичной офертой
 
 

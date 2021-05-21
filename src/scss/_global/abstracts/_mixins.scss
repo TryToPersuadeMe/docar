@@ -28,7 +28,9 @@
 }
 
 @mixin placeholder {
+  font-family: "FordAntenna";
   font-weight: 200;
-  font-size: 1.2rem;
-  line-height: 1.2;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #787a8e;
 }

@@ -109,11 +109,14 @@
   text-align: center;
   justify-self: center;
   align-self: center;
+  display: flex;
+  flex-direction: column;
   &__cell {
     text-align: center;
     color: $mainTextColor;
     margin-bottom: 2.5rem;
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   &__date {
