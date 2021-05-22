@@ -1,0 +1,43 @@
+
+#popUpWindow-js-1.popUp.popUp_makeAnApplication
+  .container.popUp__container
+        button.popUp__closeButton
+        .popUp__wrapper
+            +makeAnApplication("Оставить заявку",false)
+
+
+#popUpWindow-js-2.popUp.popUp_makeQuestion
+    .container.popUp__container
+        button.popUp__closeButton
+        .popUp__wrapper
+            h5.popUp__title Задать вопрос 
+            p.popUp__text.popUp__suptitle Не нашли ответ на свой вопрос, оставьте его нам и наш менеджер ответит
+            form(action="#").popUp__form 
+                .popUp__inputsGrid
+                    input(type="text" placeholder="Ваше имя" ).defaultinput.defaultinput_bigText.defaultinput_whiteText
+                    input(type="number" placeholder="+7 (999) 111 11 11").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                    label.popUp__label Введите вопрос
+                        textarea(name="", ).popUp__textArea
+                
+                +customCheckboxNote
+            +defaultButton("button","popUp__button","Оставить заявку")
+
+
+
+#popUpWindow-js-3.popUp
+    .container.popUp__container
+        button.popUp__closeButton
+        .popUp__wrapper
+            h5.popUp__title Оставить заявку 
+            p.popUp__text.popUp__suptitle Не нашли нужный автомобиль?
+            form(action="#").popUp__form 
+                .popUp__inputsGrid
+                    input(type="text" placeholder="Ваше имя").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                    input(type="number" placeholder="+7 (999) 111 11 11").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                    input(type="text" placeholder="Марка автомобиля").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                    input(type="number" placeholder="Сумма").defaultinput.defaultinput_bigText.defaultinput_whiteText
+                +customCheckboxNote
+            +defaultButton("button","popUp__button","Оставить заявку")
+
+
+

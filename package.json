@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "animate.css": "^4.1.1",
+    "imask": "^6.0.7",
     "jquery": "^3.6.0",
     "nouislider": "^15.1.0",
     "swiper": "^6.5.9"

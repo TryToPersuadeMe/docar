@@ -9,8 +9,6 @@
     background-color: $mainTextColor;
 
     &__container {
-      padding-bottom: 7.5rem;
-
       grid-template-columns: 12rem minmax(30rem, 40rem) auto;
     }
 
@@ -23,13 +21,8 @@
     $this: ".select";
     &.open {
       #{$this}__dropdown {
-        transform: translate(-50%, 100%) scale(1);
-        opacity: 1;
-        visibility: visible;
+        background-color: white;
       }
-    }
-    #{$this}__dropdown {
-      background-color: transparent;
     }
   }
 }

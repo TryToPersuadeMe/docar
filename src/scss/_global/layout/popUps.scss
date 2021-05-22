@@ -1,19 +1,99 @@
 .popUp {
   position: fixed;
-  top: 50%;
+  top: calc(50% + 8rem);
   left: 50%;
   background-color: $mainTextColor;
   width: 100%;
   height: 100%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: z(popUp_active);
+  transition: 0.1s ease;
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s ease;
+  &_active {
+    opacity: 1;
+    transition: 1s ease;
+    visibility: visible;
+  }
+
+  $this: &;
+  &_makeQuestion {
+    #{$this}__form {
+      margin-top: 0;
+    }
+
+    #{$this}__inputsGrid {
+      margin-bottom: 1rem;
+      row-gap: 2.5rem;
+    }
+  }
+
+  &_makeAnApplication {
+    $thisPopUp: ".makeAnApplication";
+    #{$thisPopUp} {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    #{$thisPopUp}__wrapper {
+      max-width: 45rem;
+      width: 100%;
+    }
+
+    #{$thisPopUp}__title {
+      @extend .popUp__title;
+    }
+
+    #{$thisPopUp}__button {
+      @extend .popUp__button;
+      margin-top: 8.5rem;
+    }
+
+    #{$thisPopUp}__text {
+      &_suptitle {
+        @extend .popUp__text;
+        max-width: 100%;
+      }
+    }
+
+    #{$thisPopUp}__input {
+      max-width: 35rem;
+      @extend .defaultinput_bigText;
+      @extend .defaultinput_whiteText;
+      &:not(:last-of-type) {
+        margin-bottom: 4rem;
+      }
+    }
+
+    #{$thisPopUp}__form {
+      margin-top: 5rem;
+      max-width: 40rem;
+    }
+
+    .checkBox {
+      margin-top: 3rem;
+    }
+  }
+
   &__container {
-    max-width: 73rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 134rem;
+  }
+
+  &__closeButton,
+  &__wrapper {
+    margin-top: 3.5rem;
+  }
+
+  &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    max-width: 73rem;
   }
 
   &__title {
@@ -38,20 +118,20 @@
   }
 
   &__form {
+    margin-top: 5.5rem;
   }
 
   &__closeButton {
-    width: 4.2rem;
-    height: 4.2rem;
+    width: 3.6rem;
+    height: 3.6rem;
     @include backgroundImage("@/assets/_global/icons/close_white.svg", contain);
     background-color: transparent;
     position: absolute;
-    right: 0;
+    right: 2rem;
     top: 0;
-    transform: translateY(50%);
     transition: 1s ease;
     &:hover {
-      transform: translateY(50%) rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 
@@ -59,8 +139,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 4rem;
+    width: 100%;
     margin-bottom: 5rem;
-    // gap: 1rem;
+    justify-content: center;
   }
 
   &__button {
@@ -73,6 +154,27 @@
       box-shadow: 0px 0px 40px 5px #a39bfd;
     }
   }
+  &__label {
+    grid-column: 1/2 span;
+    @extend .defaultinput_bigText;
+    color: #787a8e;
+    font-weight: 200;
+    text-align: start;
+    line-height: 1.4;
+  }
+
+  &__textArea {
+    resize: none;
+    background-color: transparent;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #c3c0f9;
+    height: 19.6rem;
+    @extend .defaultinput;
+    @extend .defaultinput_whiteText;
+    @extend .defaultinput_bigText;
+    padding: 2rem;
+  }
 
   .checkBox {
     $this: ".checkBox";
@@ -84,6 +186,17 @@
 
     #{$this}__input:checked + #{$this}__customCheckbox {
       border: 0.05rem solid #787a8e;
+    }
+
+    #{$this}__input:checked + #{$this}__customCheckbox + #{$this}__text {
+      color: #787a8e;
+    }
+
+    &__text {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 140.3%;
+      color: #787a8e;
     }
   }
 }

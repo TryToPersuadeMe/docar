@@ -2,14 +2,17 @@
 include ~@/templates/_global/abstracts/mixins/button_default.pug
 include ~@/templates/_global/abstracts/mixins/card_link.pug
 include ~@/templates/_global/abstracts/mixins/searchInput.pug
+include ~@/templates/_global/abstracts/mixins/makeAnApplication.pug
 include ~@/templates/_global/abstracts/mixins/card_withIcon.pug
+
 mixin slide(title,text,imgNum)
   .dealProcess__slide.swiper-slide
     .dealProcess__img
       img(src=require(`@/assets/images/index/dealProcess/${imgNum}.jpg`), alt="#")
-    .dealProcess__textWrapper 
-      h6.dealProcess__slideTitle= title
-      p.dealProcess__text=text
+    .container
+      .dealProcess__textWrapper 
+        h6.dealProcess__slideTitle= title
+        p.dealProcess__text=text
 
 mixin toggleTextItem(title,[...text])
   .toggleTextItem
@@ -20,11 +23,6 @@ mixin toggleTextItem(title,[...text])
       each val in [...text]
         p.toggleTextItem__text= val
 
-mixin customCheckboxNote()
-  label.checkBox
-    input(type="checkbox").checkBox__input
-    span.checkBox__customCheckbox
-    span.makeAnApplication__text Я соглашаюсь с условиями обработки и использования моих персональных данных, а также с общими условиями лизинга  
 
 
 
@@ -44,7 +42,7 @@ html(lang="ru")
           .container.container_small.firstScreen__container
             h1.firstScreen__title.sectionTitle.sectionTitle_white.sectionTitle_fw300 Лизинг <br> легковых автомобилей
             h4.firstScreen__subtitle Позваляет приобрести автомобили <br> быстро и без труда
-            +defaultButton("button","firstScreen__button","Оставить заявку") 
+            +defaultButton("button","firstScreen__button call-popUp-js","Оставить заявку", 1) 
 
       .catalog
         .catalog__container.container
@@ -101,6 +99,7 @@ html(lang="ru")
       section.dealProcess
         .container.dealProcess__container
           h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Как происходит сделка лизинга
+          
         .dealProcess__slider.swiper-container 
           .swiper-wrapper 
             +slide("Выбор транспорта и поставщика","Выбираете желаемый автомобиль и поставщика",1)
@@ -110,7 +109,7 @@ html(lang="ru")
             +slide("Передача автомобиля","Вы получаете ключи от желаемого автомобиля",5)
             +slide("Внесение платежей","Вы вносите авансовый и ежемесячные платежи",6)
             +slide("Выкуп автомобиля","Вы выкупаете автомобиль в собственность!",7)
-
+          .container
             .dealProcess__arrowsWrapper
               button.dealProcess__arrow.dealProcess__arrow_prev
                 img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
@@ -118,12 +117,12 @@ html(lang="ru")
               button.dealProcess__arrow.dealProcess__arrow_next
                 img(src=require("@/assets/_global/icons/arrow_angle.svg"), alt="arrow")
 
-
-          .customPaginationWrapper
-            .container.customPaginationWrapper__container
-              .dealProcess__pagination
-              .customProgressBar
-                  .customProgressBar__fillLine
+          
+        .customPaginationWrapper
+          .container.customPaginationWrapper__container
+            .dealProcess__pagination
+            .customProgressBar
+                .customProgressBar__fillLine
 
       section.FAQ
         .FAQ__container.container 
@@ -186,7 +185,7 @@ html(lang="ru")
             ])
             .toggleTextItem
               h6.toggleTextItem__title.permanentActive Другой вопрос?
-                button.toggleTextItem__buttonPopUp Задать свой вопрос
+                button(data-window="2").toggleTextItem__buttonPopUp.call-popUp-js Задать свой вопрос
               .toggleTextItem__dropdown
 
       section.contacts
@@ -196,17 +195,7 @@ html(lang="ru")
             .container.contacts__container
               .contacts__gpsIcon
                 img(src=require("@/assets/_global/icons/gps-icon.svg"), alt="gps")
-              .makeAnApplication
-                .makeAnApplication__wrapper
-                  h4.makeAnApplication__title Оставить заявку на лизинг
-                  p.makeAnApplication__text.makeAnApplication__text_suptitle.makeAnApplication__text_centered  Специалисты DO CAR Лизинг сделают расчет и ответят на Ваши вопросы
-
-                  form(action="#").makeAnApplication__form
-                    input(type="text" placeholder="Ваше имя").defaultinput
-                    input(type="number" placeholder="+7 (999) 111 11 11").defaultinput
-                  +customCheckboxNote
-                  +defaultButton("button","makeAnApplication__button","Оставить заявку") 
+              +makeAnApplication("Оставить заявку на лизинг", true)
               
-
       include ~@/templates/_global/layout/_footer.pug
       

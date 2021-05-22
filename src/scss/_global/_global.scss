@@ -9,6 +9,7 @@
 @import "@scss/_global/base/mainContainer.scss";
 
 /* vendors - code from side sources and Libraries */
+@import "~animate.css";
 
 /* components */
 @import "@scss/_global/components/text.scss";
@@ -16,6 +17,8 @@
 @import "@scss/_global/components/searchInput.scss";
 @import "@scss/_global/components/input.scss";
 @import "@scss/_global/components/checkBox.scss";
+@import "@scss/_global/components/makeAnApplicationPopUp.scss";
+@import "@scss/_global/components/preloader.scss";
 
 /* layout */
 @import "@scss/_global/layout/header.scss";

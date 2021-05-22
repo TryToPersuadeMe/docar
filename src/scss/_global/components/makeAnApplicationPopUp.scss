@@ -12,7 +12,7 @@
   .checkBox {
     margin-top: 1rem;
   }
-  
+
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -27,8 +27,11 @@
     align-items: center;
     margin-top: 3.5rem;
     max-width: 25.5rem;
-    & > :not(:last-child) {
-      margin-bottom: 1.6rem;
+  }
+
+  &__input {
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
     }
   }
 
@@ -47,7 +50,6 @@
     line-height: 140.3%;
     color: #787a8e;
     transition: 0.3s ease;
-
     &_centered {
       text-align: center;
     }
@@ -58,6 +60,10 @@
   }
 
   &__button {
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+
+  .checkBox__text {
+    line-height: 1.4;
   }
 }

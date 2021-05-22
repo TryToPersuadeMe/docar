@@ -7,9 +7,39 @@
   font-family: Gilroy;
   min-height: 6.5rem;
   font-weight: 500;
-  transition: 0.4s ease;
+  transition: box-shadow 0.4s ease;
+  transition: background-color 0.4s ease;
+  transition: transform 3s ease;
+  cursor: pointer;
+  position: relative;
   &:hover {
     box-shadow: 0px 0px 25px 10px rgba(163, 155, 253, 0.51);
     background-color: #010142;
+  }
+}
+
+.call-popUp-js {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: $mainTextColor;
+    width: 200vmax;
+    height: 200vmax;
+    display: block;
+    border-radius: 100%;
+    transition: 0.5s ease;
+
+    z-index: z(popUpAnimationBackground);
+  }
+
+  &.animationPopUpOpen {
+    &::after {
+      transform: translate(-50%, -50%) scale(1);
+      transition: 1s ease;
+    }
   }
 }

@@ -1,3 +1,7 @@
+include ../components/preloader.pug
+include ~@/templates/_global/abstracts/mixins/customCheckBoxNote.pug
+
+
 header.header.navigation
   .container.container_small.navigation__container
     a(href="#" ).navigation__logo
@@ -20,6 +24,8 @@ header.header.navigation
     .navigation__contacts
       p.navigation__text Г.Москва
       a(href=`tel:${phoneNumber.replace(/\s+/g, '')}` class="navigation__text") #{ phoneNumber }
+  
+  
 
 
 

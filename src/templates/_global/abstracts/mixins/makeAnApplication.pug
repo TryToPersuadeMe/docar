@@ -1,0 +1,14 @@
+mixin makeAnApplication(title,callPopUp)
+    .makeAnApplication
+        .makeAnApplication__wrapper
+            h4.makeAnApplication__title= title 
+            p.makeAnApplication__text.makeAnApplication__text_suptitle.makeAnApplication__text_centered  Специалисты DO CAR Лизинг сделают расчет и ответят на Ваши вопросы
+
+            form(action="#").makeAnApplication__form
+                input(type="text" required placeholder="Ваше имя").defaultinput.makeAnApplication__input
+                input(type="text" required placeholder="+7 (999) 111 11 11").defaultinput.makeAnApplication__input.phone-mask-js
+                +customCheckboxNote
+                if callPopUp== true
+                    +defaultButton("button","makeAnApplication__button call-popUp-js","Оставить заявку",1) 
+                else if callPopUp== false
+                    +defaultButton("button","makeAnApplication__button","Оставить заявку") 
