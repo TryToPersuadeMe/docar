@@ -16,6 +16,8 @@ const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const imageminSvgo = require("imagemin-svgo");
 const { extendDefaultPlugins } = require("svgo");
+// const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+
 /* images finish */
 
 const isDev = process.env.NODE_ENV === "development";
@@ -100,6 +102,8 @@ const plugins = () => {
         outputPath: path.resolve(__dirname, "./dist/assets/favicons/"),
         prefix: "./assets/favicons/",
       })
+
+      // new ImageminWebpWebpackPlugin()
     );
 
     /* аналайзер */
@@ -208,7 +212,7 @@ module.exports = {
         test: /\.html$/,
         loader: "html-loader",
         options: {
-          interpolate: true,
+          attrs: ["img:src", "source:srcset"],
         },
       },
 

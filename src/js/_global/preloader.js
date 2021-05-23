@@ -1,3 +1,3 @@
-window.addEventListener("DomContentLoaded", () => {
-  const $preloader = document.querySelector(".preloader");
-});
+// window.addEventListener("DomContentLoaded", () => {
+//   const $preloader = document.querySelector(".preloader");
+// });

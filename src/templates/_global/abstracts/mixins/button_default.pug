@@ -1,5 +1,5 @@
-mixin defaultButton(tag, additionalSelector, text)
+mixin defaultButton(tag, additionalSelector, text,popUpNum)
   if tag== "button"
-    button.defaultButton(class=additionalSelector)= text
+    button.defaultButton(class=additionalSelector data-window=popUpNum)= text
   else if tag== "a"
     a.defaultButton(class=additionalSelector)= text

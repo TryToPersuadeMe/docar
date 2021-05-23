@@ -1,5 +1,6 @@
 import noUiSlider from "nouislider";
 import "nouislider/dist/nouislider.css";
+
 const $dateSlider = document.querySelectorAll(".calculator__noUiSliderWrapper");
 const $from_num = document.querySelector(".calculator__from");
 
