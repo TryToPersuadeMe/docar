@@ -7,23 +7,22 @@ header.header.navigation
     a(href="#" ).navigation__logo
       img(src=require('@/assets/_global/logo.svg'), alt="docar logo")
 
+    .burgerIcon
+      span 
+
     nav.navigation__panel.header__navigation 
-    
-      .navigation__select.select
-        p.navigation__text Лизинг
-        .navigation__dropdown.select__dropdown
-          a(href="#").navigation__text.navigation__text_currentPage Физические лица
-          a(href="#").navigation__text Юридические лица
-
-
-
+      button.navigation__closeButton
+      a.navigation__text(href="#")= "Физические лица"
+      a.navigation__text.navigation__text_currentPage(href="#")= "Юридические лица"
       a.navigation__text(href="#")= "Калькулятор"
-      a.navigation__text(href="#")= "Каталог"
 
-    - var phoneNumber = '+7 961 477 77 77';1
+
+
+    - var phoneNumber = '+7 961 477 77 77';
     .navigation__contacts
       p.navigation__text Г.Москва
       a(href=`tel:${phoneNumber.replace(/\s+/g, '')}` class="navigation__text") #{ phoneNumber }
+    
   
   
 

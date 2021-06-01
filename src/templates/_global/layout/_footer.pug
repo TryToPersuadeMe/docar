@@ -5,14 +5,11 @@ footer.footer
 
     nav.navigation__panel.footer_navigation 
     
-      .navigation__select.select
-        p.navigation__text Лизинг
-        .navigation__dropdown.select__dropdown
-          a(href="#").navigation__text.navigation__text_currentPage Физические лица
-          a(href="#").navigation__text Юридические лица
 
+
+      a.navigation__text.navigation__text_currentPage(href="#")= "Физические лица"
+      a.navigation__text(href="#")= "Юридические лица"
       a.navigation__text(href="#")= "Калькулятор"
-      a.navigation__text(href="#")= "Каталог"
 
     - var phoneNumber = '+7 961 477 77 77';
     .navigation__contacts

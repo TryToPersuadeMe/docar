@@ -7,6 +7,10 @@
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   background-color: white;
+
+  &__closeButton{
+    display: none;
+  }
   .select {
     $this: ".select";
     &.open {
@@ -88,11 +92,10 @@
   &__text {
     font-size: 1.8rem;
     color: $mainTextColor;
+
     &_currentPage {
-      text-decoration: underline;
-      &:hover {
-        text-decoration: underline;
-      }
+      color: #787a8e;
+      cursor: default;
     }
   }
 
@@ -118,6 +121,123 @@
     #{$this}__navigation {
       opacity: 0;
       visibility: hidden;
+    }
+  }
+}
+.burgerIcon {
+  display: flex;
+  align-items: center;
+  width: 2.7rem;
+  height: 1.6rem;
+  display: none;
+  position: relative;
+  z-index: z(burgerIcon);
+
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &::after,
+  &::before,
+  span {
+    content: "";
+    position: absolute;
+    left: 0%;
+    border-radius: 0.3rem;
+    width: 100%;
+    height: 0.2rem;
+    background-color: #000000;
+    transition: 0.3s ease;
+  }
+  span {
+    transform: translateY(50%);
+    transition: 0.3s ease;
+  }
+
+  &::after {
+    top: 0%;
+  }
+
+  &::before {
+    top: 100%;
+  }
+
+  &.active {
+    transform: scale(1.5);
+    span {
+      opacity: 0;
+    }
+    &::after,
+    &::before {
+      top: 50%;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .burgerIcon {
+    grid-row: 2/2;
+    display: flex;
+    justify-self: end;
+  }
+
+  .header {
+    position: relative;
+    &__navigation {
+      position: absolute;
+      top: 0;
+      right: -100%;
+      display: flex;
+      flex-direction: column;
+      max-width: 32rem;
+      z-index: z(header_navigation);
+      background-color: white;
+      padding: 4rem;
+      // &.active {
+      right: 0;
+      & :not(:last-child) {
+        margin: 0 0 4rem 0;
+      }
+      // }
+    }
+
+    .navigation {
+      &__container {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      &__contacts {
+        grid-row: 1/2;
+        width: 100%;
+        max-width: 100%;
+        grid-column: 1/2 span;
+        justify-content: space-between;
+        border-bottom: 1px solid #c3c0f9;
+        padding-bottom: 1rem;
+        padding-left: 5rem;
+      }
+
+      &__logo {
+        grid-row: 2/2;
+      }
+
+      &__text {
+        &_currentPage {
+          color: $mainTextColor;
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
