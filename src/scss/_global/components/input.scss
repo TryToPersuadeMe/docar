@@ -20,3 +20,26 @@
     color: white;
   }
 }
+
+@media (max-width: 1350px) {
+  .defaultinput {
+    &_bigText {
+      font-size: 2.2rem;
+
+      &::placeholder {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .defaultinput {
+    &_bigText {
+      font-size: 1.8rem;
+      &::placeholder {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

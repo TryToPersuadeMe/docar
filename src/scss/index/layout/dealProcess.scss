@@ -144,7 +144,6 @@
         }
 
         .counter {
-          font-size: 2.4rem;
           color: #ffffff;
         }
 
@@ -159,6 +158,8 @@
     display: flex;
     padding-bottom: 23rem;
     justify-content: center;
+    max-width: 90%;
+    margin: 0 auto;
     &__container {
       margin: 0 2rem;
       padding: 0;
@@ -220,5 +221,33 @@
     font-weight: 300;
     font-size: 1.8rem;
     line-height: 140.8%;
+  }
+}
+
+@media (max-width: 1350px) {
+  .dealProcess {
+    &__slideTitle {
+      font-size: 2.5rem;
+    }
+
+    &__textWrapper {
+      max-width: 36rem;
+      min-height: 17rem;
+    }
+
+    &__pagination {
+      .swiper-pagination-bullet {
+        width: 4.5rem;
+        height: 4.5rem;
+
+        .counter {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    .customPaginationWrapper {
+      padding-bottom: 13rem;
+    }
   }
 }

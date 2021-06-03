@@ -14,7 +14,7 @@ const dealProcessSlider = new SwiperCore(".dealProcess__slider", {
     clickable: true,
     renderBullet: function (index, className) {
       return (
-        `<span class="${className}">` +
+        `<span class="${className} ">` +
         `<span class="counter">${index + 1}</span>` +
         `<span class="activeEffect"></span>` +
         `<span class="text"></span>` +

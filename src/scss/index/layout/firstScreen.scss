@@ -5,6 +5,7 @@
   &__container {
     padding-top: 13vh;
     padding-bottom: 10vh;
+    min-height: 60rem;
   }
 
   &__title {
@@ -19,5 +20,34 @@
   }
 
   &__button {
+  }
+}
+
+@media (min-width: 769px) {
+  .firstScreen {
+    &__title {
+      font-size: 4.8rem;
+    }
+  }
+}
+
+@media (min-width: 651px) {
+  .firstScreen {
+    &__container {
+      min-height: 50rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .firstScreen {
+    &__container {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    &__subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+    }
   }
 }

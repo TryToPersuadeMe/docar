@@ -105,3 +105,91 @@
     margin-left: 2rem;
   }
 }
+
+@media (max-width: 1350px) {
+  .toggleTextItem {
+    $this: &;
+    &__buttonPopUp {
+      font-size: 2rem;
+    }
+
+    &__title {
+      font-size: 2.4rem;
+      &.permanentActive {
+        font-size: 2.4rem;
+      }
+    }
+
+    &.active {
+      #{$this}__title {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .toggleTextItem {
+    $this: &;
+
+    &__title {
+      font-size: 2rem;
+      &.permanentActive {
+        font-size: 2rem;
+      }
+    }
+
+    &.active {
+      #{$this}__text {
+        font-size: 1.6rem;
+      }
+
+      #{$this}__title {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .FAQ {
+    &__column {
+      & > :not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .FAQ {
+    &__column {
+      & > :not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .toggleTextItem {
+    $this: &;
+
+    &__title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      &.permanentActive {
+        font-size: 1.5rem;
+      }
+    }
+    &.active {
+      #{$this}__text {
+        font-size: 1.2rem;
+      }
+
+      #{$this}__title {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__buttonPopUp {
+      font-size: 1rem;
+    }
+  }
+}

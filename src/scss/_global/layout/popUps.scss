@@ -111,7 +111,7 @@
   }
 
   &__text {
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 140.3%;
     text-align: center;
     color: #787a8e;
@@ -197,6 +197,131 @@
       font-size: 1.6rem;
       line-height: 140.3%;
       color: #787a8e;
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .popUp {
+    top: calc(50% + 11rem);
+
+    &__textArea {
+      height: 14rem;
+    }
+
+    &__title {
+      font-size: 3.6rem;
+    }
+
+    &__text {
+      font-size: 1.6rem;
+    }
+
+    &__button {
+      margin-top: 6.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .popUp {
+    &__textArea {
+      height: 11rem;
+      padding: 1rem;
+    }
+    &__label {
+      grid-column: 1/1;
+    }
+
+    $this: &;
+    &_makeQuestion {
+      input {
+        justify-self: center;
+        max-width: 30rem;
+      }
+
+      #{$this}__inputsGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .popUp {
+    top: calc(50% + 10rem);
+    $this: &;
+
+    &__button {
+      margin-top: 1.5rem;
+    }
+
+    &__suptitle {
+      margin-bottom: 1.5rem;
+    }
+
+    &__textArea {
+      height: 8rem;
+      padding: 1rem;
+    }
+
+    &_makeAnApplication {
+      $thisPopUp: ".makeAnApplication";
+
+      .checkBox {
+        margin-top: 1.5rem;
+      }
+
+      #{$thisPopUp}__form {
+        margin-top: 2rem;
+      }
+
+      #{$thisPopUp}__input {
+        &:not(:last-of-type) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+
+    &_makeQuestion {
+      input {
+        justify-self: center;
+        max-width: 30rem;
+      }
+
+      #{$this}__inputsGrid {
+        gap: 2rem;
+      }
+    }
+
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    &__text {
+      font-size: 1rem;
+    }
+
+    &__container {
+      flex-direction: column;
+    }
+    &__closeButton {
+      position: static;
+      align-self: flex-end;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    &__closeButton,
+    &__wrapper {
+      margin-top: 1rem;
+    }
+
+    .checkBox {
+      &__text {
+        font-size: 1rem;
+      }
     }
   }
 }

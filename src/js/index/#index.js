@@ -3,3 +3,4 @@ import "./getCarSlider";
 import "../_global/calculator";
 import "./dealProcessSlider";
 import "./textContainer";
+import "./features";

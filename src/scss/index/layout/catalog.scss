@@ -2,10 +2,23 @@
   &__row {
     margin-top: -9rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    justify-content: center;
     gap: 2rem;
   }
   &__search {
     margin-top: 9rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .catalog {
+    &__container {
+      padding: 0;
+    }
+    &__row {
+      grid-template-columns: 1fr;
+      margin: 3rem 0 0 0;
+    }
   }
 }

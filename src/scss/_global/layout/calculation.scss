@@ -59,7 +59,10 @@
     bottom: 0;
     left: 50%;
     width: 80%;
-    transform: translateX(-50%);
+    border: 0px solid black;
+    transform: translate(-50%, 50%);
+    .noUi-target {
+    }
     .noUi-base {
       height: 0.3rem;
       margin: 0 auto;
@@ -78,6 +81,9 @@
       width: 1.8rem;
       height: 1.8rem;
       border-radius: 100%;
+      right: -50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       cursor: e-resize;
       box-shadow: none;
       border: 0px solid transparent;
@@ -153,5 +159,131 @@
   &__button {
     max-width: fit-content;
     margin: 2rem auto 0 auto;
+  }
+}
+
+@media (max-width: 1350px) {
+  .calculation {
+    &__container {
+      padding-bottom: 9rem;
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .calculation {
+    &__row {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 3rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .result {
+    &__date {
+      &_big {
+        font-size: 6rem;
+      }
+
+      &_medium {
+        font-size: 3rem;
+      }
+    }
+
+    &__text {
+      &_big {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .calculator {
+    padding: 3rem 4rem;
+    &__name {
+      font-size: 2.8rem;
+    }
+
+    &__customInput {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+.calculation{
+  &__container{
+    padding-bottom: 5rem;
+  }
+}
+
+  .calculator {
+    padding: 1rem;
+    &__name {
+      font-size: 1.8rem;
+    }
+
+    &__note {
+      font-size: 1rem;
+      right: 0.5rem;
+    }
+
+    &__customInput {
+      height: 5rem;
+      font-size: 2rem;
+      padding: 0 2.5rem;
+    }
+
+    &__limitsText {
+      font-size: 1rem;
+    }
+    &__cell {
+      &:not(:last-of-type) {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    &__limitsWrapper {
+      margin-top: 0.5rem;
+    }
+
+    &__noUiSliderWrapper {
+      .noUi-handle {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .noUi-base {
+        height: 0.2rem;
+      }
+    }
+  }
+
+  .result {
+    &__cell {
+      margin-bottom: 1rem;
+    }
+    &__date {
+      &_big {
+        font-size: 3.6rem;
+      }
+
+      &_medium {
+        font-size: 2.4rem;
+      }
+    }
+
+    &__text {
+      font-size: 1.6rem;
+      &_big {
+        font-size: 2rem;
+      }
+    }
+
+    &__button {
+      margin-top: 1rem;
+    }
   }
 }

@@ -13,6 +13,7 @@
     height: 0;
     position: relative;
     padding-bottom: 65%;
+    margin-right: 9rem;
     img {
       position: absolute;
       top: 0;
@@ -64,5 +65,114 @@
     font-weight: 300;
     font-size: 3rem;
     line-height: 1.5;
+  }
+}
+
+@media (max-width: 1350px) {
+  .advantages {
+    &__li {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .advantages {
+    &__row {
+      position: relative;
+      justify-content: center;
+      height: 100vh;
+      min-height: 80rem;
+      align-items: center;
+    }
+
+    &__ol {
+      max-width: 80%;
+      margin-left: 7rem;
+    }
+    &__img {
+      position: absolute;
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      padding-bottom: 0;
+      top: 0;
+      left: 0;
+      height: 100%;
+      &::after {
+        content: "";
+        background-color: black;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &__li {
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .advantages {
+    &__row {
+      flex-direction: column;
+      min-height: auto;
+      height: auto;
+    }
+
+    &__ol {
+      max-width: 100%;
+      margin: 4rem 0 0 0;
+    }
+    &__li {
+      font-size: 2rem;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      &::before {
+        color: #787a8e;
+        position: relative;
+        transform: translate(0, 0);
+        font-size: 6rem;
+      }
+
+      &:not(:last-of-type) {
+        margin-bottom: 2rem;
+      }
+    }
+    &__img {
+      position: relative;
+      padding-bottom: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .advantages {
+    &__container {
+      padding-top: 5rem;
+    }
+
+    &__ol {
+      margin-top: 1rem;
+    }
+
+    &__img {
+      min-height: 33rem;
+    }
+
+    &__li {
+      font-size: 1.5rem;
+      &::before {
+        font-size: 2.8rem;
+      }
+    }
   }
 }

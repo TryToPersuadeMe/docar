@@ -68,14 +68,16 @@ html(lang="ru")
       section.features
         .container.features__container 
           h2.sectionTitle.sectionTitle_centered.sectionTitle_defaultMarginBottom Чем лизинг лучше кредита
-          .features__boxesWrapper
-            +card_WithIcon("Не нужно подтверждение дохода", 1)
-            +card_WithIcon("Не важна кредитная история", 2)
-            +card_WithIcon("Минимальный пакет документов", 3)
-            +card_WithIcon("Решение за один день", 4)
-            +card_WithIcon("Автомобили с пробегом", 5)
-            +card_WithIcon("Меньше первоначальный взнос", 6)
-            +card_WithIcon("Любое гражданство", 7)
+          .swiper-container.features__sliderContainer 
+            .swiper-wrapper.features__boxesWrapper 
+              +card_WithIcon("Не нужно подтверждение дохода", 1)
+              +card_WithIcon("Не важна кредитная история", 2)
+              +card_WithIcon("Минимальный пакет документов", 3)
+              +card_WithIcon("Решение за один день", 4)
+              +card_WithIcon("Автомобили с пробегом", 5)
+              +card_WithIcon("Меньше первоначальный взнос", 6)
+              +card_WithIcon("Любое гражданство", 7)
+          .features__pagination
         
       .getCarSlider
         .getCarSlider__container.container.swiper-container 

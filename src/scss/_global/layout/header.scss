@@ -8,58 +8,18 @@
   padding-bottom: 2.5rem;
   background-color: white;
 
-  &__closeButton{
-    display: none;
-  }
-  .select {
-    $this: ".select";
-    &.open {
-      #{$this}__dropdown {
-        transform: translate(-50%, 100%) scale(1);
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-  }
+  &__closeButton {
+    // display: none;
+    background-color: transparent;
+    width: 3rem;
+    height: 3rem;
 
-  &__select {
-    position: relative;
-    cursor: pointer;
-  }
-
-  $dropdDownSpaceFromSelect: -1rem;
-
-  &__dropdown {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: white;
-    min-width: 26rem;
-    position: absolute;
-    bottom: $dropdDownSpaceFromSelect;
-    transform: translate(-50%, 10%) scale(0);
-    transition: 0.5s ease;
-    left: 50%;
-    padding: 1.2rem;
-    opacity: 0;
-    visibility: visible;
-    &::before {
-      content: "";
-      position: absolute;
-      top: calc(50% + #{$dropdDownSpaceFromSelect});
-      left: 50%;
-      transform: translate(-50%, -50%);
+    img {
       width: 100%;
       height: 100%;
-      z-index: -1;
-      cursor: default;
-    }
-
-    & > :not(:last-child) {
-      margin-bottom: 2rem;
+      object-fit: contain;
     }
   }
-
   &__container {
     display: grid;
     gap: 3rem;
@@ -84,9 +44,6 @@
     max-width: 60rem;
     width: 100%;
     justify-self: center;
-    & > :not(:last-child) {
-      margin-right: 2rem;
-    }
   }
 
   &__text {
@@ -118,21 +75,18 @@
     max-width: 100%;
     transition: 0.5s ease;
     z-index: z(header_fixedState);
-    #{$this}__navigation {
-      opacity: 0;
-      visibility: hidden;
-    }
   }
 }
 .burgerIcon {
   display: flex;
   align-items: center;
   width: 2.7rem;
-  height: 1.6rem;
+  height: 2rem;
   display: none;
   position: relative;
   z-index: z(burgerIcon);
-
+  border: 0.2rem solid transparent;
+  border-radius: 100%;
   cursor: pointer;
   transition: 0.3s ease;
 
@@ -145,7 +99,7 @@
     border-radius: 0.3rem;
     width: 100%;
     height: 0.2rem;
-    background-color: #000000;
+    background-color: $mainTextColor;
     transition: 0.3s ease;
   }
   span {
@@ -162,7 +116,9 @@
   }
 
   &.active {
-    transform: scale(1.5);
+    width: 3rem;
+    border: 0.2rem solid $mainTextColor;
+    height: 2.8rem;
     span {
       opacity: 0;
     }
@@ -172,11 +128,31 @@
     }
 
     &::after {
-      transform: rotate(45deg);
+      transform: rotate(45deg) scale(0.7) translateY(-50%);
     }
 
     &::before {
-      transform: rotate(-45deg);
+      transform: rotate(-45deg) scale(0.7) translateY(-50%);
+    }
+  }
+}
+
+@media (min-width: 1351px) {
+  .header {
+    .navigation {
+      &__panel {
+        & > :not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+    }
+
+    $this: &;
+    &_fixedState {
+      #{$this}__navigation {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
   }
 }
@@ -188,24 +164,36 @@
     justify-self: end;
   }
 
+  .navigation {
+    &__text {
+      font-size: 1.6rem;
+    }
+  }
+
   .header {
-    position: relative;
+    padding-bottom: 1.5rem;
     &__navigation {
       position: absolute;
-      top: 0;
       right: -100%;
-      display: flex;
-      flex-direction: column;
+      bottom: 0%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content max-content max-content;
+
+      gap: 4rem;
+      height: 50vh;
+      width: 100%;
       max-width: 32rem;
       z-index: z(header_navigation);
       background-color: white;
       padding: 4rem;
-      // &.active {
-      right: 0;
-      & :not(:last-child) {
-        margin: 0 0 4rem 0;
+      transition: 0.7s ease;
+      transform: translateY(100%);
+      padding-bottom: 1.5rem;
+      &.active {
+        transform: translateY(100%);
+        right: 0;
       }
-      // }
     }
 
     .navigation {
@@ -215,6 +203,10 @@
         justify-content: space-between;
         grid-template-rows: 1fr 1fr;
         gap: 1rem;
+      }
+
+      &__closeButton {
+        justify-self: end;
       }
 
       &__contacts {
@@ -237,6 +229,45 @@
           color: $mainTextColor;
           text-decoration: underline;
         }
+      }
+    }
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .header {
+    .navigation {
+      &__panel {
+        height: 100vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    .navigation {
+      &__contacts {
+        padding-left: 0;
+      }
+
+      &__logo {
+        max-width: 9rem;
+      }
+
+      &__panel {
+        max-width: 28rem;
+
+        .navigation__text {
+          font-size: 1.6rem;
+        }
+      }
+      &__text {
+        font-size: 1.2rem;
       }
     }
   }
