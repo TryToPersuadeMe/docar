@@ -16,6 +16,9 @@
 }
 
 .dealProcess {
+  $bullet: 5.6rem;
+  $paddingTop: 5rem;
+
   &__container {
   }
 
@@ -25,7 +28,6 @@
   &__slide {
     height: 85vh;
     position: relative;
-    margin-bottom: 5.5rem;
   }
 
   &__img {
@@ -56,6 +58,10 @@
     justify-content: space-between;
     position: relative;
     z-index: 3;
+    width: 100%;
+    padding: $paddingTop 0rem 23rem 0rem;
+    width: 100% !important;
+    overflow: visible;
 
     .swiper-pagination-bullet-active {
       .activeEffect {
@@ -64,16 +70,23 @@
     }
 
     .swiper-pagination-bullet {
+      // transform: scale(1) !important;
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 1;
-      width: 5.6rem;
-      height: 5.6rem;
+      width: $bullet;
+      height: $bullet;
       border: 1px solid #787a8e;
       position: relative;
       transition: 0.3s ease;
       z-index: z(bullet);
+      transform: scale(1) !important;
+      display: none;
+      left: 0 !important;
+      &.disabled {
+        display: none;
+      }
 
       &::after {
         position: absolute;
@@ -152,27 +165,36 @@
         }
       }
     }
+
+    .swiper-pagination-bullet-active-main {
+      display: flex;
+    }
+
+    .swiper-pagination-bullet-active-next,
+    .swiper-pagination-bullet-active-prev {
+    }
   }
 
   .customPaginationWrapper {
     display: flex;
-    padding-bottom: 23rem;
     justify-content: center;
-    max-width: 90%;
+    width: 100%;
     margin: 0 auto;
     &__container {
-      margin: 0 2rem;
-      padding: 0;
       position: relative;
+      width: 100%;
+      max-width: 90%;
     }
   }
 
   .customProgressBar {
+    max-width: 100%;
     height: 0.2rem;
     display: flex;
     position: absolute;
-    top: 50%;
-    left: 0%;
+    top: calc(#{$paddingTop} + #{$bullet} / 2);
+    left: 50%;
+    transform: translateX(-50%);
     // background-color: $mainTextColor;
     width: 100%;
     background-color: #787a8e;
@@ -187,6 +209,9 @@
   &__arrow {
     width: 3.5rem;
     height: 9.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &_prev {
       background: rgba(120, 122, 142, 0.589);
       border-radius: 0px 0.7rem 0.7rem 0px;
@@ -226,6 +251,11 @@
 
 @media (max-width: 1350px) {
   .dealProcess {
+    $bullet: 4.5rem;
+    $paddingTop: 5rem;
+    &__arrowsWrapper {
+      right: 9.5rem;
+    }
     &__slideTitle {
       font-size: 2.5rem;
     }
@@ -237,8 +267,8 @@
 
     &__pagination {
       .swiper-pagination-bullet {
-        width: 4.5rem;
-        height: 4.5rem;
+        width: $bullet;
+        height: $bullet;
 
         .counter {
           font-size: 1.8rem;
@@ -246,8 +276,44 @@
       }
     }
 
+    .customProgressBar {
+      top: calc(#{$paddingTop} + #{$bullet} / 2);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .dealProcess {
     .customPaginationWrapper {
-      padding-bottom: 13rem;
+      // max-width: 85%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dealProcess {
+    &__slide {
+      margin-bottom: 5rem;
+    }
+
+    &__arrow {
+      width: 2.5rem;
+      height: 7rem;
+      img {
+        width: 0.7rem;
+      }
+    }
+
+    &__arrowsWrapper {
+      bottom: 1.6rem;
+    }
+
+    &__textWrapper {
+      padding: 1.4rem;
+      bottom: 2.5rem;
+    }
+    &__slideTitle {
+      font-size: 2.5rem;
     }
   }
 }
