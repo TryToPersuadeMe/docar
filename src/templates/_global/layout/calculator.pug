@@ -6,44 +6,44 @@
             .calculator__cell
                 p.calculator__name Стоимость автомобиля, ₽
                 div(id="cost" ).calculator__sliderWrapper
-                    p.calculator__customInput  от 500 000 
+                    p.calculator__customInput  от 300 000 
                     
                     .calculator__noUiSliderWrapper
                 .calculator__limitsWrapper
-                    span.calculator__limitsText от 500 000 ₽
-                    span.calculator__limitsText до 2 500 000 ₽
+                    span.calculator__limitsText от 300 000 ₽
+                    span.calculator__limitsText до 10 000 000 ₽
 
             .calculator__cell
                 p.calculator__name Первоночальный взнос, %
                 div(id="firstPayment").calculator__sliderWrapper
-                    span.calculator__customInput  от 500 000 
+                    span.calculator__customInput 
                     p(data-endfix_note =" %").calculator__note 10 %
                     .calculator__noUiSliderWrapper
                 .calculator__limitsWrapper
                     span.calculator__limitsText от 10 %
-                    span.calculator__limitsText до 100 %
+                    span.calculator__limitsText до 49 %
 
             .calculator__cell
                 p.calculator__name Срок лизинга, мес
                 div(id="period").calculator__sliderWrapper
-                    span.calculator__customInput  6 мес.
+                    span.calculator__customInput  12 мес.
                     .calculator__noUiSliderWrapper
                 .calculator__limitsWrapper
-                    span.calculator__limitsText от 6 мес.
-                    span.calculator__limitsText до 32 мес.
+                    span.calculator__limitsText от 12 мес.
+                    span.calculator__limitsText до 60 мес.
 
         form.result
             label.result__cell
-                span.result__date.result__date_big 41 654 ₽
+                span(id="regularPayment").result__date.result__date_big 41 654 ₽
                 span.result__text.result__text_big Ежемесячный платеж
             label.result__cell
-                span.result__date.result__date_medium 485 020 ₽
+                span(id="totalPayment").result__date.result__date_medium 485 020 ₽
                 span.result__text Сумма договора лизинга
             label.result__cell
-                span.result__date.result__date_small 80 830 ₽
+                span(id="returnNDS").result__date.result__date_small 80 830 ₽
                 span.result__text Возврат 20% НДС
             label.result__cell
-                span.result__date.result__date_small 80 830 ₽
+                span(id="decreaseTax").result__date.result__date_small 80 830 ₽
                 span.result__text Снижение налога на прибыль
             +defaultButton("button","result__button call-popUp-js","Оставить заявку", 1) 
             span.result__note Расчет носит предварительный характер и не является публичной офертой
