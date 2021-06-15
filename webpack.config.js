@@ -59,9 +59,21 @@ const cssLoaders = (extra) => {
 const plugins = () => {
   const base = [
     new HTMLWebpackPlugin({
-      template: "./templates/index/#index.pug",
-      filename: "index.html",
-      chunks: ["_global", "index"],
+      template: "./templates/index/#index_ur.pug",
+      filename: "index_ur.html",
+      chunks: ["_global", "index_fiz"],
+    }),
+
+    new HTMLWebpackPlugin({
+      template: "./templates/index/#index_fiz.pug",
+      filename: "index_fiz.html",
+      chunks: ["_global", "index_ur"],
+    }),
+
+    new HTMLWebpackPlugin({
+      template: "./templates/preloader/#preloader.pug",
+      filename: "preloader.html",
+      chunks: ["_global", "preloader"],
     }),
 
     new CleanWebpackPlugin(),
@@ -119,7 +131,9 @@ module.exports = {
   mode: "development",
   entry: {
     _global: ["./js/_global/_global.js"],
-    index: ["./js/index/#index.js"],
+    index_fiz: ["./js/index/#index_fiz.js"],
+    index_ur: ["./js/index/#index_ur.js"],
+    preloader: ["./js/preloader/#preloader.js"],
     // about: ["./js/about/#about.js"],
   },
   output: {
