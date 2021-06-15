@@ -67,7 +67,7 @@ const plugins = () => {
     new HTMLWebpackPlugin({
       template: "./templates/index/#index_fiz.pug",
       filename: "index_fiz.html",
-      chunks: ["_global", "index_ur"],
+      chunks: ["_global", "index_fiz"],
     }),
 
     new HTMLWebpackPlugin({

@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
   /* умножает все цифры на это число */
   let multiplier = 1000;
   /* основная процентная ставка */
-  const mainRate = 19.3;
+  let mainRate = 19.3;
 
   $dateSlider.forEach((el, index) => {
     let minNum, maxNum, endfix, oneStep, customStart;
@@ -47,11 +47,48 @@ window.addEventListener("load", () => {
         let result = `${Math.round(values[0]).toLocaleString()}`;
         $showResult[index].innerText = result + endfix;
       }
-
       /* считываем процент аванса */
       let note = el.offsetParent.querySelector(".calculator__note");
       if (note) {
         let endfix = note.dataset.endfix_note;
+        let noteValue = Math.round(values[0]);
+        switch (noteValue) {
+          case 10:
+            mainRate = 20.3;
+            break;
+
+          case 15:
+            mainRate = 19.3;
+            break;
+
+          case 20:
+            mainRate = 18.3;
+            break;
+
+          case 25:
+            mainRate = 17.3;
+            break;
+
+          case 30:
+            mainRate = 16.3;
+            break;
+
+          case 35:
+            mainRate = 15.3;
+            break;
+
+          case 40:
+            mainRate = 14.3;
+            break;
+
+          case 45:
+            mainRate = 12.3;
+            break;
+
+          case 49:
+            mainRate = 10.3;
+            break;
+        }
         note.innerText = Math.round(values[0]) + endfix;
       }
 
