@@ -1,3 +1,7 @@
+@import "@scss/_global/abstracts/mixins.scss";
+@import "@scss/_global/abstracts/variables.scss";
+@import "@scss/_global/abstracts/functions.scss";
+
 .preloader {
   position: fixed;
   min-width: 100%;
@@ -9,10 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  &.loaded {
-    opacity: 0;
-    visibility: hidden;
-  }
+
   &__container {
     display: flex;
     justify-content: center;
@@ -22,6 +23,23 @@
     align-items: center;
     &:not(:last-of-type) {
       margin-right: 3rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .preloader {
+    &__container {
+      display: grid;
+      gap: 3rem;
+    }
+
+    &__link {
+      display: flex;
+
+      &:not(:last-of-type) {
+        margin: 0;
+      }
     }
   }
 }

@@ -6,12 +6,12 @@ import "swiper/swiper-bundle.css";
 const responsiveBulltes = () => {
   if (window.innerWidth > 1025) {
     return 7;
-  } else if (window.innerWidth > 769) {
+  } else if (window.innerWidth > 479) {
     return 4;
+  } else if (window.innerWidth > 280) {
+    return 1;
   }
 };
-
-console.log(responsiveBulltes());
 
 const dealProcessSlider = new SwiperCore(".dealProcess__slider", {
   slidesPerView: 1,
@@ -23,11 +23,12 @@ const dealProcessSlider = new SwiperCore(".dealProcess__slider", {
     el: ".dealProcess__pagination",
     clickable: false,
     dynamicBullets: true,
+    clickable: true,
     dynamicMainBullets: responsiveBulltes(),
 
     renderBullet: function (index, className) {
       return (
-        `<span class="${className} progressBarCounter-js">` +
+        `<span class="${className} ">` +
         `<span class="counter">${index + 1}</span>` +
         `<span class="activeEffect"></span>` +
         `<span class="text"></span>` +
@@ -42,33 +43,54 @@ const dealProcessSlider = new SwiperCore(".dealProcess__slider", {
   },
 
   on: {
-    // slideNextTransitionStart: function () {
-    //   if (window.innerWidth < 1025) {
-    //     const $paginationWrapper = document.querySelector(".customPaginationWrapper");
-    //     const $bullets = $paginationWrapper.querySelectorAll(".swiper-pagination-bullet");
-    //     const $bullets_enable = document.querySelectorAll(".progressBarCounter-js");
-    //     $bullets_enable.forEach((el, indexEl) => {
-    //       if (el.classList.contains("swiper-pagination-bullet-active") && el.nextElementSibling.classList.contains("disabled")) {
-    //         for (let index = 0; index < $bullets.length; index++) {
-    //           if (index < indexEl) {
-    //             $bullets[index].classList.add("disabled");
-    //             $bullets[index].classList.remove("progressBarCounter-js");
-    //           } else {
-    //             $bullets[index].classList.remove("disabled");
-    //             $bullets[index].classList.add("progressBarCounter-js");
-    //           }
-    //         }
-    //       }
-    //     });
-    //   }
-    // },
+    slideChange: function () {
+      if (window.innerWidth < 1025) {
+        const $paginationWrapper = document.querySelector(".customPaginationWrapper");
+        const $bullets = $paginationWrapper.querySelectorAll(".swiper-pagination-bullet");
+        const $responsiveLine = document.querySelectorAll(".bulletGroup");
+        const $activeLine = document.querySelector(".customProgressBar__fillLine");
+
+        if (this.activeIndex > 2) {
+          $bullets.forEach((el, index) => {
+            if (index < 3) {
+              el.style.display = "none";
+              el.classList.remove("bulletGroup");
+            } else {
+              el.classList.add("bulletGroup");
+              el.style.display = "flex";
+            }
+          });
+        } else {
+          $bullets.forEach((el, index) => {
+            if (index > 3) {
+              el.classList.remove("bulletGroup");
+              el.style.display = "none";
+            } else {
+              el.classList.add("bulletGroup");
+              el.style.display = "flex";
+            }
+          });
+        }
+
+        if (this.activeIndex == 3) {
+          $activeLine.style.width = 33 + "%";
+          $activeLine.style.minWidth = 33 + "%";
+        } else if (this.activeIndex == 4) {
+          $activeLine.style.width = 66 + "%";
+          $activeLine.style.minWidth = 66 + "%";
+        } else if (this.activeIndex == 5) {
+          $activeLine.style.width = 99 + "%";
+          $activeLine.style.minWidth = 99 + "%";
+        }
+      }
+    },
   },
 });
 
 const progressBar = () => {
   const $activeLine = document.querySelector(".customProgressBar__fillLine");
   const $bullets = document.querySelectorAll(".swiper-pagination-bullet");
-  const $bullets_enable = document.querySelectorAll(".progressBarCounter-js");
+  const $bullets_enable = document.querySelectorAll(".swiper-pagination-bullet-active-main");
 
   let bullets_length = $bullets_enable.length - 1;
 
@@ -99,36 +121,8 @@ const dotsTitle = () => {
 };
 dotsTitle();
 
-const responsivePagination = () => {
-  const $paginationWrapper = document.querySelector(".customPaginationWrapper");
-  const $bullets = $paginationWrapper.querySelectorAll(".swiper-pagination-bullet");
-  const $bullets_enable = document.querySelectorAll(".progressBarCounter-js");
-  const $slider = document.querySelector(".dealProcess");
-  let bulletsVisibleGroup = 4;
-
-  if (innerWidth < 769) {
-    bulletsVisibleGroup = 3;
-  }
-  /* прячем лишние буллеты */
-  if (window.innerWidth < 1025) {
-    for (let index = 0; index < $bullets.length; index++) {
-      if (index > bulletsVisibleGroup) {
-        $bullets[index].classList.add("disabled");
-        $bullets[index].classList.remove("progressBarCounter-js");
-      }
-    }
-  } else {
-    for (let index = 0; index < $bullets.length; index++) {
-      $bullets[index].classList.remove("disabled");
-      $bullets[index].classList.add("progressBarCounter-js");
-    }
-  }
-};
-
-// responsivePagination();
 progressBar();
 
 window.addEventListener("resize", () => {
-  // responsivePagination();
   progressBar();
 });

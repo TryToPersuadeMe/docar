@@ -19,9 +19,6 @@
   $bullet: 5.6rem;
   $paddingTop: 5rem;
 
-  &__container {
-  }
-
   &__slider {
     min-width: 100vw;
   }
@@ -44,11 +41,14 @@
     position: relative;
   }
 
+  &__arrowsWrapper,
+  &__textWrapper {
+    bottom: 3.5rem;
+  }
+
   &__arrowsWrapper {
     position: absolute;
-    transform: translateY(-100%);
     z-index: 2;
-    bottom: 0;
     right: 13.5rem;
     display: flex;
   }
@@ -84,9 +84,8 @@
       transform: scale(1) !important;
       display: none;
       left: 0 !important;
-      &.disabled {
-        display: none;
-      }
+
+   
 
       &::after {
         position: absolute;
@@ -169,10 +168,6 @@
     .swiper-pagination-bullet-active-main {
       display: flex;
     }
-
-    .swiper-pagination-bullet-active-next,
-    .swiper-pagination-bullet-active-prev {
-    }
   }
 
   .customPaginationWrapper {
@@ -229,7 +224,6 @@
     border-radius: 0.7rem;
     max-width: 46rem;
     width: 100%;
-    bottom: 3.5rem;
     // left: 7rem;
     transform: translateY(-100%);
     position: relative;
@@ -282,20 +276,15 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .dealProcess {
-    .customPaginationWrapper {
-      // max-width: 85%;
-    }
-  }
-}
-
 @media (max-width: 768px) {
   .dealProcess {
-    &__slide {
-      margin-bottom: 5rem;
+    &__pagination {
+      padding-bottom: 15rem;
     }
 
+    .customPaginationWrapper {
+      max-width: 85%;
+    }
     &__arrow {
       width: 2.5rem;
       height: 7rem;
@@ -303,17 +292,156 @@
         width: 0.7rem;
       }
     }
-
-    &__arrowsWrapper {
-      bottom: 1.6rem;
+    &__arrowsWrapper,
+    &__textWrapper {
+      bottom: 2.5rem;
     }
 
     &__textWrapper {
       padding: 1.4rem;
-      bottom: 2.5rem;
     }
     &__slideTitle {
       font-size: 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .dealProcess {
+    $bullet: 3.8rem;
+    $paddingTop: 3rem;
+
+    .customProgressBar {
+      top: calc(#{$paddingTop} + #{$bullet} / 2);
+    }
+
+    .customPaginationWrapper {
+      max-width: 90%;
+    }
+
+    &__slideTitle {
+      font-size: 1.8rem;
+    }
+
+    &__text {
+      font-size: 1.4rem;
+    }
+
+    &__textWrapper {
+      max-width: 25rem;
+      min-height: 14rem;
+    }
+
+    &__arrowsWrapper {
+      right: 5rem;
+    }
+
+    &__slide {
+      height: 65vh;
+    }
+
+    &__pagination {
+      padding: $paddingTop 0rem 12rem 0rem;
+
+      .swiper-pagination-bullet {
+        width: $bullet;
+        height: $bullet;
+        .text {
+          font-size: 1.2rem;
+          min-width: 10rem;
+        }
+        .counter {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dealProcess {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    .customProgressBar {
+      display: none;
+    }
+
+    &__slider {
+      order: 3;
+    }
+
+    .container {
+      position: static;
+    }
+
+    &__container {
+      order: 1;
+    }
+
+    .customPaginationWrapper {
+      padding-bottom: 0;
+      margin-bottom: 3rem;
+      order: 2;
+    }
+    .swiper-pagination-bullet {
+      .text {
+        display: none;
+      }
+    }
+
+    &__slider {
+      margin: 0;
+    }
+
+    &__slide {
+      height: auto;
+    }
+
+    &__textWrapper {
+      position: static;
+      transform: translate(0);
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__arrowsWrapper {
+      max-width: 90%;
+      display: flex;
+      justify-content: space-between;
+      bottom: 50%;
+      width: 100%;
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+
+    &__pagination {
+      padding: 0;
+      justify-content: center;
+      .swiper-pagination-bullet {
+        display: none !important;
+      }
+
+      .swiper-pagination-bullet-active {
+        display: flex !important;
+      }
+    }
+
+    &__arrow {
+      background-color: transparent;
+      @include backgroundImage("@/assets/_global/icons/greyArrow.svg", contain);
+      width: 1rem;
+      height: 2rem;
+
+      img {
+        display: none;
+      }
+      &_next {
+        right: 0;
+      }
+    }
+
+    &__img {
+      display: none;
     }
   }
 }
